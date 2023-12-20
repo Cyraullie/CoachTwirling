@@ -1,4 +1,4 @@
-import {Text, Image, StyleSheet} from "react-native";
+import {Text, Image, StyleSheet, View} from "react-native";
 
 export function Header() {
     return (
@@ -9,45 +9,12 @@ export function Header() {
     )
 }
     
-const styles = StyleSheet.create({
+const styles = StyleSheet.create({  
     tinyLogo: {
-        alignSelf: "center",
         resizeMode: 'stretch',
-        width: 240,
+        width: 45,
         height: 45,
+        marginLeft: "47vw"
     },
-  container: {
-    flex: 1,
-    flexDirection: "column",
-    alignSelf: "stretch",
-    textAlign: "center",
-  },
-  image: {
-    width: 50,
-    height: 200,
-  },
-  backgroud: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "white"
-  },
-  input: {
-    backgroundColor: "#FFFFFF",
 
-    marginLeft: 50,
-    marginRight: 50,
-    marginBottom: 20,
-    height: 50,
-  },
-  picker: {
-    marginLeft: 50,
-    marginRight: 50,
-    marginBottom: 20,
-    height: 50,
-  },
 });
