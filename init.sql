@@ -20,8 +20,9 @@ USE `twirling` ;
 CREATE TABLE IF NOT EXISTS `twirling`.`group_elements` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
+  `link` TEXT NULL,
   PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -37,8 +38,8 @@ CREATE TABLE IF NOT EXISTS `twirling`.`levels` (
     FOREIGN KEY (`group_elements_id`)
     REFERENCES `twirling`.`group_elements` (`id`)
     ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+    ON UPDATE NO ACTION) 
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -47,7 +48,6 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `twirling`.`elements` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
-  `link` TEXT NULL,
   `levels_id` INT NOT NULL,
   PRIMARY KEY (`id`),
   INDEX `fk_elements_levels1_idx` (`levels_id` ASC) VISIBLE,
@@ -56,7 +56,17 @@ CREATE TABLE IF NOT EXISTS `twirling`.`elements` (
     REFERENCES `twirling`.`levels` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+
+-- -----------------------------------------------------
+-- Table `twirling`.`group_athletes`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `twirling`.`group_athletes` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `name` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`)) 
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -65,8 +75,22 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `twirling`.`athletes` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `firstname` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
+  `group_athletes_id1` INT NULL,
+  `group_athletes_id2` INT NULL,
+  PRIMARY KEY (`id`),
+  INDEX `fk_athletes_group_athletes1_idx` (`group_athletes_id1` ASC) VISIBLE,
+  INDEX `fk_athletes_group_athletes2_idx` (`group_athletes_id2` ASC) VISIBLE,
+  CONSTRAINT `fk_athletes_group_athletes1`
+    FOREIGN KEY (`group_athletes_id1`)
+    REFERENCES `twirling`.`group_athletes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_athletes_group_athletes2`
+    FOREIGN KEY (`group_athletes_id2`)
+    REFERENCES `twirling`.`group_athletes` (`id`)
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -75,7 +99,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `twirling`.`state_elements` (
   `athletes_id` INT NOT NULL,
   `elements_id` INT NOT NULL,
-  `state` ENUM('pas commencé', 'commencé', 'réussi', 'validé') NOT NULL DEFAULT 'pas commencé',
+  `state` ENUM(' ', 'C', 'R', 'V') NOT NULL DEFAULT ' ',
   PRIMARY KEY (`athletes_id`, `elements_id`),
   INDEX `fk_athletes_has_elements_elements1_idx` (`elements_id` ASC) VISIBLE,
   INDEX `fk_athletes_has_elements_athletes1_idx` (`athletes_id` ASC) VISIBLE,
@@ -89,39 +113,7 @@ CREATE TABLE IF NOT EXISTS `twirling`.`state_elements` (
     REFERENCES `twirling`.`elements` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `twirling`.`group_athletes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `twirling`.`group_athletes` (
-  `id` INT NOT NULL AUTO_INCREMENT,
-  `name` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
-
--- -----------------------------------------------------
--- Table `twirling`.`group_athletes_has_athletes`
--- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `twirling`.`group_athletes_has_athletes` (
-  `group_athletes_id` INT NOT NULL,
-  `athletes_id` INT NOT NULL,
-  PRIMARY KEY (`group_athletes_id`, `athletes_id`),
-  INDEX `fk_group_athletes_has_athletes_athletes1_idx` (`athletes_id` ASC) VISIBLE,
-  INDEX `fk_group_athletes_has_athletes_group_athletes1_idx` (`group_athletes_id` ASC) VISIBLE,
-  CONSTRAINT `fk_group_athletes_has_athletes_group_athletes1`
-    FOREIGN KEY (`group_athletes_id`)
-    REFERENCES `twirling`.`group_athletes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION,
-  CONSTRAINT `fk_group_athletes_has_athletes_athletes1`
-    FOREIGN KEY (`athletes_id`)
-    REFERENCES `twirling`.`athletes` (`id`)
-    ON DELETE NO ACTION
-    ON UPDATE NO ACTION)
-ENGINE = InnoDB;
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 
 -- -----------------------------------------------------
@@ -132,9 +124,8 @@ CREATE TABLE IF NOT EXISTS `twirling`.`musics` (
   `name` VARCHAR(255) NOT NULL,
   `extension` VARCHAR(255) NOT NULL,
   `filename` VARCHAR(255) NOT NULL,
-  PRIMARY KEY (`id`))
-ENGINE = InnoDB;
-
+  PRIMARY KEY (`id`)) 
+ENGINE = InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
