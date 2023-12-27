@@ -1,0 +1,41 @@
+version: '3.8'
+services:
+    mysql:
+        image: mysql:8.0
+        container_name: mysql
+        volumes:
+            - ./db:/var/lib/mysql
+            - ./init.sql:/init.sql
+        environment:
+            MYSQL_ALLOW_EMPTY_PASSWORD: "no"
+            MYSQL_DATABASE: twirling
+            #MYSQL_ROOT: "root"
+            MYSQL_USER: gamer
+            MYSQL_PASSWORD: gamer
+            #MYSQL_ROOT_PASSWORD: "test"
+        ports:
+            - 3306:3306
+        networks:
+            - twirling-exa
+
+    phpmyadmin:
+        depends_on:
+            - mysql
+        image: phpmyadmin/phpmyadmin
+        container_name: phpmyadmin
+        environment:
+            PMA_HOST: mysql
+            PMA_PORT: 3306
+        ports:
+            - 8181:80
+        networks:
+            - twirling-exa
+
+networks:
+  twirling-exa:
+    driver: bridge
+
+volumes:
+  db: 
+    driver: local
+
