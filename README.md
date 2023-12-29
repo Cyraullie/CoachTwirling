@@ -9,5 +9,6 @@ pour la base de donnée aller dans la racine du projet et faite :
 aller dasn coach_twirling et faite :
 ```npm run web```
 
+Verifier votre ip avec ```ipconfig``` dans un invité de commande
 puis avec un autre terminal aller dans api et fait :
-```php artisan serve```
+```php artisan serve --host=192.168.1.2 --port=8080```
