@@ -1,21 +1,24 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import {
   StyleSheet,
   View,
   Text,
   ScrollView
 } from "react-native";
+import DataLevelView from "../components/LevelData";
 
-class HomeScreen extends Component {
+class LevelScreen extends Component {
     constructor(props) {
-        super(props),
-        (this.state = { username: "", password: ""});
+        super(props)
     }
- 
+     
     render() {
         return (
             <View style={styles.container}>
-              <Text>Bienvenue</Text>
+              <Text>{this.props.route.params.name}</Text>
+              <ScrollView>
+                <DataLevelView id={this.props.route.params.id} name={this.props.route.params.name} nav={this.props.navigation}/>
+              </ScrollView>
             </View>
         );
     }
@@ -35,7 +38,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
 
-  
 
   image: {
     width: 50,
@@ -67,4 +69,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default LevelScreen;

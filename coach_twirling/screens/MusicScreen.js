@@ -5,8 +5,9 @@ import {
   Text,
   ScrollView
 } from "react-native";
+import DataGroupElementView from "../components/GroupElementData";
 
-class HomeScreen extends Component {
+class TechnicalScreen extends Component {
     constructor(props) {
         super(props),
         (this.state = { username: "", password: ""});
@@ -15,7 +16,7 @@ class HomeScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-              <Text>Bienvenue</Text>
+              <Text>MUSIQUE</Text>
             </View>
         );
     }
@@ -35,7 +36,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
 
-  
 
   image: {
     width: 50,
@@ -67,4 +67,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default TechnicalScreen;

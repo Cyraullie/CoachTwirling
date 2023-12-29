@@ -1,21 +1,19 @@
-import React, { Component } from "react";
-import {
-  StyleSheet,
-  View,
-  Text,
-  ScrollView
-} from "react-native";
+import React, { Component, useEffect } from "react";
+import { StyleSheet, View, ScrollView, Text } from "react-native";
+import DataVariationView from "../components/VariationData";
 
-class HomeScreen extends Component {
+class VariationScreen extends Component {
     constructor(props) {
-        super(props),
-        (this.state = { username: "", password: ""});
+        super(props)
     }
- 
+     
     render() {
         return (
             <View style={styles.container}>
-              <Text>Bienvenue</Text>
+              <Text>{this.props.route.params.name_groupElement}{this.props.route.params.name_level}</Text>
+              <ScrollView>
+                <DataVariationView params={this.props.route.params} nav={this.props.navigation}/>
+              </ScrollView>
             </View>
         );
     }
@@ -35,7 +33,6 @@ const styles = StyleSheet.create({
     justifyContent: "space-between"
   },
 
-  
 
   image: {
     width: 50,
@@ -67,4 +64,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default HomeScreen;
+export default VariationScreen;

@@ -1,11 +1,18 @@
+import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
+import { Image } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
 import { Header } from '../components/Header';
 
 import HomeScreen from '../screens/HomeScreen';
+import TechnicalScreen from '../screens/TechnicalScreen';
+import MusicScreen from '../screens/MusicScreen';
+import LevelScreen from '../screens/LevelScreen';
+import ElementScreen from '../screens/ElementScreen';
+import VariationScreen from '../screens/VariationScreen';
 
 export default function MyTabs() {
   return (
@@ -42,7 +49,7 @@ export default function MyTabs() {
 
         <Tab.Screen
             name="Technique" 
-            component={HomeScreen}
+            component={TechnicalScreen}
             options={{ 
                 tabBarLabel: 'Technique',
                 tabBarOptions: { 
@@ -58,7 +65,7 @@ export default function MyTabs() {
 
         <Tab.Screen
             name="Musique" 
-            component={HomeScreen}
+            component={MusicScreen}
             options={{ 
                 tabBarLabel: 'Musique',
                 tabBarOptions: { 
@@ -71,6 +78,31 @@ export default function MyTabs() {
                  }
             }} 
         />
+
+        <Tab.Screen
+            name="Levels" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <LevelScreen {...props}/>}
+        </Tab.Screen>
+
+        <Tab.Screen
+            name="Elements" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <ElementScreen {...props}/>}
+        </Tab.Screen>
+        
+        <Tab.Screen
+            name="Variations" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <VariationScreen {...props}/>}
+        </Tab.Screen>
+
         </Tab.Navigator>
     </NavigationContainer>
   );
