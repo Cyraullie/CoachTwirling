@@ -68,6 +68,6 @@ INSERT INTO variations (name, element_id) VALUES ("Paddle Forward", 2);
 INSERT INTO variations (name, element_id) VALUES ("Paddle Reverse", 2);
 
 INSERT INTO state_elements (athlete_id, variation_id, state) VALUES (6, 1, "R");
-INSERT INTO state_elements (athlete_id, variation_id, state) VALUES (6, 2, " ");
+INSERT INTO state_elements (athlete_id, variation_id, state) VALUES (6, 2, "PC");
 
 

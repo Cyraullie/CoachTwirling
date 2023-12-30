@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `twirling`.`state_elements` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `athlete_id` INT NOT NULL,
   `variation_id` INT NOT NULL,
-  `state` ENUM(' ', 'C', 'R', 'V') NOT NULL DEFAULT ' ',
+  `state` ENUM('PC', 'C', 'R', 'V') NOT NULL DEFAULT 'PC',
   INDEX `fk_athletes_has_elements_athletes1_idx` (`athlete_id` ASC) VISIBLE,
   INDEX `fk_state_elements_variations1_idx` (`variation_id` ASC) VISIBLE,
   PRIMARY KEY (`id`),
