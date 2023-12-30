@@ -4,14 +4,19 @@ import DataVariationView from "../components/VariationData";
 
 class VariationScreen extends Component {
     constructor(props) {
-        super(props)
+        super(props);
+
+      
     }
      
     render() {
         return (
             <View style={styles.container}>
-              <Text>{this.props.route.params.name_groupElement}{this.props.route.params.name_level}</Text>
-              <ScrollView>
+              <View style={styles.title}>
+                <Text style={{textAlign: "center", fontWeight: "bold"}}>{this.props.route.params.name_groupElement.toUpperCase()}</Text>
+                <Text style={{textAlign: "center", fontWeight: "bold"}}>{this.props.route.params.name_level.toUpperCase()}</Text>
+              </View>
+              <ScrollView style={styles.scrollArea}>
                 <DataVariationView params={this.props.route.params} nav={this.props.navigation}/>
               </ScrollView>
             </View>
@@ -20,47 +25,25 @@ class VariationScreen extends Component {
 }
 
 const styles = StyleSheet.create({
+  //TODO prendre container comme style de base pour les autres écrans
   container: {
+    flex: 0.85,
+    flexDirection: 'column',
+  },
+  scrollArea: {
     flex: 1,
-    flexDirection: "column",
-    alignSelf: "stretch",
-    textAlign: "center",
-    alignContent: "flex-end",
+    flexDirection: 'column',
   },
-  tabArea: {
-    
-    flexDirection: "row",
-    justifyContent: "space-between"
-  },
-
-
-  image: {
-    width: 50,
-    height: 200,
-  },
-  backgroud: {
-    flex: 1,
-    resizeMode: "cover",
-    justifyContent: "center",
-  },
-  text: {
-    fontSize: 18,
-    fontWeight: "bold",
-    color: "white"
-  },
-  input: {
-    backgroundColor: "#FFFFFF",
-
-    marginLeft: 50,
-    marginRight: 50,
+  title: {
+    width: "90%",
+    borderBottomColor: 'gray',
+    borderBottomWidth: 0.5,
+    borderTopColor: 'gray',
+    borderTopWidth: 0.5,
+    marginLeft: "auto",
+    marginRight: "auto",
+    marginTop: 10,
     marginBottom: 20,
-    height: 50,
-  },
-  picker: {
-    marginLeft: 50,
-    marginRight: 50,
-    marginBottom: 20,
-    height: 50,
   },
 });
 

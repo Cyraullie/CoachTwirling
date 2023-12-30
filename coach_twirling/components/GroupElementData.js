@@ -27,13 +27,14 @@ export default class DataGroupElementView extends Component {
         
         for(let i = 0; i < data.length; i++){
             groupElementShift.push(
-                <>
+                
+                <React.Fragment key={i}>
                     <TouchableOpacity
                     style={styles.button}
                     onPress={() => this.props.nav.navigate("Levels", { id: data[i].id, name: data[i].name})}>
                         <Text style={styles.buttonText}>{data[i].name + " " + data[i].id}</Text>
                     </TouchableOpacity>
-                </>
+                </React.Fragment>
             )
         }
 

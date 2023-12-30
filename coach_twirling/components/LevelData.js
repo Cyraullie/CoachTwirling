@@ -27,13 +27,14 @@ export default class DataLevelView extends Component {
         
         for(let i = 0; i < data.length; i++){
             levelShift.push(
-                <>
+                
+                <React.Fragment key={i + 100}>
                     <TouchableOpacity
                     style={styles.button}
                     onPress={() => this.props.nav.navigate("Elements", { id_groupElement: this.props.id, name_groupElement: this.props.name, id_level: data[i].id, name_level: data[i].name})}>
                         <Text style={styles.buttonText}>{data[i].name}</Text>
                     </TouchableOpacity>
-                </>
+                </React.Fragment>
             )
         }
 

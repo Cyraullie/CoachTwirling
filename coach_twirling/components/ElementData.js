@@ -28,13 +28,13 @@ export default class DataElementView extends Component {
         
         for(let i = 0; i < data.length; i++){
             elementShift.push(
-                <>
+                <React.Fragment key={i + 1000}>
                     <TouchableOpacity
                     style={styles.button}
                     onPress={() => this.props.nav.navigate("Variations", { id_groupElement: this.props.params.id_groupElement, name_groupElement: this.props.params.name_groupElement, id_level: this.props.params.id_level, name_level: this.props.params.name_level, id_element: data[i].id, name_element: data[i].name})}>
                         <Text style={styles.buttonText}>{data[i].name}</Text>
                     </TouchableOpacity>
-                </>
+                </React.Fragment>
             )
         }
 

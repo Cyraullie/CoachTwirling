@@ -21,7 +21,8 @@ export default function MyTabs() {
           screenOptions={{
             headerTitle: (props) => <Header {...props}/>,
             headerStyle: {
-                backgroundColor: "#6610f2"
+                backgroundColor: "#6610f2",
+                height: 90
               },
             tabBarStyle: {
                 height: 90,
