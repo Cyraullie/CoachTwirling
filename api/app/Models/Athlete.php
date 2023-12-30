@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Athlete extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = ['firstname', 'group_athlete_id1', 'group_athlete_id2'];
 
 

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class Level extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = ['name', 'group_element_id'];
 
     public function groupElement() {

@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class GroupElement extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = ['name', 'link'];
 
     public function levels()

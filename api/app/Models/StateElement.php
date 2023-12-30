@@ -6,6 +6,8 @@ use Illuminate\Database\Eloquent\Model;
 
 class StateElement extends Model
 {
+    public $timestamps = false;
+
     protected $fillable = ['athlete_id', 'variation_id', 'state'];
 
     public function athlete() {
