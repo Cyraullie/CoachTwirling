@@ -14,7 +14,8 @@ const styles = StyleSheet.create({
         resizeMode: 'stretch',
         width: 45,
         height: 45,
-        marginLeft: "47%"
+        marginLeft: "auto",
+        marginRight: "auto",
     },
 
 });
