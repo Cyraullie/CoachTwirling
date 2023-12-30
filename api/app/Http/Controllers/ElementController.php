@@ -10,7 +10,7 @@ class ElementController extends Controller
 {
     public function show_all(Request $request, $group_elements_id, $levels_id)
     {
-        $elements = Element::where("levels_id", $levels_id)->get();
+        $elements = Element::where("level_id", $levels_id)->get();
         return $elements;
     }
 }
