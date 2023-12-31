@@ -47,8 +47,6 @@ export default class DataVariationView extends Component {
         this.setState({ selectedGroup: groupId });
       };
 
-     
-
 
       getVariationData(data){
         let variations = data[0]
@@ -82,9 +80,13 @@ export default class DataVariationView extends Component {
                         >
                         <Text style={styles.variationText}>{variations[i].name.toUpperCase()}</Text>
                     </TouchableOpacity>      
-                    
+                    <View>
                     {
-                        groupAthletes.map((groupAthlete, index) => (
+                        groupAthletes.map((groupAthlete, index) => {
+                            /*viewsData.push(
+                                { key: "variation" + variations[i].id + groupAthlete.id}
+                            )*/
+                            return (
                             <React.Fragment key={index}>
                                     <TouchableOpacity>
                                         <Text style={styles.groupAthlete}>{groupAthlete.name.toUpperCase()}</Text>
@@ -93,12 +95,7 @@ export default class DataVariationView extends Component {
                                         athletes.map((athlete, index) => {
                                             if (athlete.group_athlete_id1 === groupAthlete.id || athlete.group_athlete_id2 === groupAthlete.id) {
                                                 let result = athlete.state_elements.find(variation => variation.variation_id === variations[i].id)
-                                                if(result !== undefined){
-                                                    console.log(variations[i].id)
-                                                    console.log("athlete.state_elements")
-                                                    //console.log(athlete.id)
-                                                    console.log(result)
-                                                }
+                                                
                                                 
                                                 return ( 
                                                     <React.Fragment key={index}>
@@ -130,10 +127,10 @@ export default class DataVariationView extends Component {
                                         })
                                     }
                             </React.Fragment>
-                        ))
+                        )})
                     }
                     
-                    
+                    </View>
                         
                     </View>
                 </React.Fragment>
@@ -155,7 +152,6 @@ export default class DataVariationView extends Component {
     componentDidUpdate(prevProps) {
         // Vérifiez si les propriétés pertinentes ont changé
         if (prevProps.params !== this.props.params) {
-          console.log("componentDidUpdate");
           this.getData();
         }
       }

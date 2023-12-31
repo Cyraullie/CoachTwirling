@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { StyleSheet, View, Image, ScrollView, TouchableOpacity, } from "react-native";
-import DataGroupElementView from "../components/GroupElementData";
 
 class TechnicalScreen extends Component {
     constructor(props) {
@@ -11,15 +10,7 @@ class TechnicalScreen extends Component {
     render() {
         return (
             <View style={styles.container}>
-              <ScrollView style={styles.scrollArea}>
-                <DataGroupElementView nav={this.props.navigation}/>
-              </ScrollView>
-              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewGroupElement")}>
-                <Image
-                  source={require("../assets/plus.png")}
-                  style={styles.image}
-                />
-              </TouchableOpacity>
+              
             </View>
         );
     }

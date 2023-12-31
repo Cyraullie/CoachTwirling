@@ -5,6 +5,8 @@ import DataVariationView from "../components/VariationData";
 class VariationScreen extends Component {
     constructor(props) {
         super(props);
+        const state = this.props.navigation.getParent();
+        console.log('Navigation State:', state);
 
       
     }

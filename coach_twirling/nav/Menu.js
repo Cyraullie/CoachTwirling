@@ -1,7 +1,7 @@
 import React from 'react';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { NavigationContainer } from '@react-navigation/native';
-import { Image } from 'react-native';
+import { Image, TouchableOpacity } from 'react-native';
 
 const Tab = createBottomTabNavigator();
 
@@ -13,17 +13,14 @@ import MusicScreen from '../screens/MusicScreen';
 import LevelScreen from '../screens/LevelScreen';
 import ElementScreen from '../screens/ElementScreen';
 import VariationScreen from '../screens/VariationScreen';
+import NewGroupElementScreen from '../screens/NewGroupElementScreen';
 
 export default function MyTabs() {
   return (
     <NavigationContainer>
         <Tab.Navigator 
           screenOptions={{
-            headerTitle: (props) => <Header {...props}/>,
-            headerStyle: {
-                backgroundColor: "#6610f2",
-                height: 90
-              },
+            header: (props) => <Header {...props}/>, 
             tabBarStyle: {
                 height: 90,
                 paddingTop: 0,
@@ -40,11 +37,11 @@ export default function MyTabs() {
                 tabBarOptions: { 
                     showIcon: true 
                  },
-                 tabBarIcon: () => {
+                 tabBarIcon: () => (
                      <Image
                          style={{ width: 50, height: 50 }}
-                         source={{ uri: "https://facebook.github.io/react/img/logo_og.png" }}/>
-                 }
+                         source={require("../assets/back.png")}/>
+                 )
             }} 
         />
 
@@ -56,11 +53,11 @@ export default function MyTabs() {
                 tabBarOptions: { 
                     showIcon: true 
                  },
-                tabBarIcon: () => {
+                tabBarIcon: () => (
                     <Image
                         style={{ width: 50, height: 50 }}
-                        source={{ uri: "https://facebook.github.io/react/img/logo_og.png" }}/>
-                }
+                        source={require("../assets/back.png")}/>
+                )
             }} 
         />
 
@@ -72,11 +69,11 @@ export default function MyTabs() {
                 tabBarOptions: { 
                     showIcon: true 
                  },
-                 tabBarIcon: () => {
+                 tabBarIcon: () => (
                      <Image
                          style={{ width: 50, height: 50 }}
-                         source={{ uri: "https://facebook.github.io/react/img/logo_og.png" }}/>
-                 }
+                         source={require("../assets/back.png")}/>
+                 )
             }} 
         />
 
@@ -102,6 +99,14 @@ export default function MyTabs() {
                 tabBarButton: (props) => null,
             }}>
                 {(props) => <VariationScreen {...props}/>}
+        </Tab.Screen>
+        
+        <Tab.Screen
+            name="NewGroupElement" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <NewGroupElementScreen {...props}/>}
         </Tab.Screen>
 
         </Tab.Navigator>
