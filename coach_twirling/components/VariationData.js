@@ -19,7 +19,8 @@ export default class DataVariationView extends Component {
         this.state = {variationData: [], _method: "PATCH", data: {}, checked: 'PC', variation_id: "", athlete_id: ""}
       }
       getData = () => {
-        axios.get(BASE_URL + "group_elements/" + this.props.params.id_groupVariation + "/levels/" + this.props.params.id_level + "/elements/" + this.props.params.id_element + "/variations/")
+        console.log(this.props.params)
+        axios.get(BASE_URL + "group_elements/" + this.props.params.id_groupElement + "/levels/" + this.props.params.id_level + "/elements/" + this.props.params.id_element + "/variations/")
         .then((response) => {
             this.getVariationData(response.data) 
         })
@@ -156,11 +157,6 @@ export default class DataVariationView extends Component {
         }
       }
 
-    componentWillUnmount() {
-        // Nettoyer l'intervalle lorsque le composant est démonté
-        clearInterval(this.refreshInterval);
-    }
-
     render() {
         return (
             <>
@@ -185,7 +181,7 @@ const styles = StyleSheet.create({
         marginTop: 5,
         paddingTop: 12,
         paddingBottom: 12,
-        backgroundColor: 'blue',
+        backgroundColor: '#6d639f',
         borderRadius: 30,
         borderWidth: 1,
         borderColor: '#fff',

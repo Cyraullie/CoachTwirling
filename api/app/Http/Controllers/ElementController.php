@@ -13,4 +13,19 @@ class ElementController extends Controller
         $elements = Element::where("level_id", $levels_id)->get();
         return $elements;
     }
+
+    public function store(Request $request)
+    {
+        try {
+            $element = new Element();
+            $element->name = $request->input("name");
+            $element->level_id = $request->input("level_id");
+            $element->link = $request->input("link");
+            $element->save();
+
+            return response("Ok", 200);
+        } catch (\Exception $e) {
+            return response('Bad request:' . $e->getMessage(), 400);
+        }
+    }
 }

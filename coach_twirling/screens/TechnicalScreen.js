@@ -14,7 +14,7 @@ class TechnicalScreen extends Component {
               <ScrollView style={styles.scrollArea}>
                 <DataGroupElementView nav={this.props.navigation}/>
               </ScrollView>
-              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewGroupElement")}>
+              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewGroupElement", { nav: this.props.navigation}) }>
                 <Image
                   source={require("../assets/plus.png")}
                   style={styles.image}
@@ -49,7 +49,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     bottom: 16,
     right: 16,
-    backgroundColor: 'blue',
+    backgroundColor: '#6d639f',
     padding: 10,
     borderRadius: 50,
     alignItems: 'center',

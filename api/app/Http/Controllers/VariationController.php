@@ -22,5 +22,19 @@ class VariationController extends Controller
 
         return $array;
     }
+
+    public function store(Request $request)
+    {
+        try {
+            $variation = new Variation();
+            $variation->name = $request->input("name");
+            $variation->element_id = $request->input("element_id");
+            $variation->save();
+
+            return response("Ok", 200);
+        } catch (\Exception $e) {
+            return response('Bad request:' . $e->getMessage(), 400);
+        }
+    }
 }
 

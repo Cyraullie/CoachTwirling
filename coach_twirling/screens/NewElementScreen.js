@@ -3,20 +3,26 @@ import { StyleSheet, View, Text, ScrollView, TouchableOpacity, TextInput, } from
 import axios from "axios";
 import { BASE_URL } from "@env"
 
-class NewGroupElementScreen extends Component {
+class NewElementScreen extends Component {
     constructor(props) {
         super(props),
-        (this.state = { name: "", _method: "PATCH",});
+        (this.state = { name: "", link: "", _method: "PATCH",});
     }
 
     onPressStore = () => {
-      let {name } = this.state;
-      let payload = {name };
-    
+      let {name, link} = this.state;
+      let payload = {name, link, level_id: this.props.route.params.params.id_level};
+
       const onSuccess = () => {
         this.props.navigation.reset({
           index: 0,
-          routes: [{ name: 'Technique' }],
+          routes: [{ name: 'Elements',
+          params: {
+            id_level: this.props.route.params.params.id_level,
+            id_groupElement: this.props.route.params.params.id_groupElement,
+            name_level: this.props.route.params.params.name_level,
+            name_groupElement: this.props.route.params.params.name_groupElement,
+          } }],
         })
       };
   
@@ -24,21 +30,27 @@ class NewGroupElementScreen extends Component {
         console.log(error && error.response);
         
       };
-      axios.post(BASE_URL + "newGroupElement", payload ).then(onSuccess).catch(onFailure)
+      axios.post(BASE_URL + "newElement", payload ).then(onSuccess).catch(onFailure)
     }
     
-    onGroupElementNameChange = (name) => {
+    onNameChange = (name) => {
       this.setState({ name: name });
+    };  
+
+    onLinkChange = (link) => {
+      this.setState({ link: link });
     };  
 
     render() {
         return (
             <View style={styles.container}>
             <View style={styles.title}>
-              <Text style={{textAlign: "center", fontWeight: "bold"}}>Nouvelle Technique</Text>
+              <Text style={{textAlign: "center", fontWeight: "bold"}}>Nouvelle Element</Text>
             </View>
               <Text style={styles.label}>Nom</Text>               
-              <TextInput defaultValue={this.state.name} style={styles.text_input} onChangeText={this.onGroupElementNameChange}/>
+              <TextInput defaultValue={this.state.name} style={styles.text_input} onChangeText={this.onNameChange}/>
+              <Text style={styles.label}>Lien</Text>               
+              <TextInput defaultValue={this.state.link} style={styles.text_input} onChangeText={this.onLinkChange}/>
               <TouchableOpacity
                 style={styles.submit}
                 onPress={this.onPressStore.bind(this)}>
@@ -111,4 +123,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default NewGroupElementScreen;
+export default NewElementScreen;

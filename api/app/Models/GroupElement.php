@@ -8,7 +8,7 @@ class GroupElement extends Model
 {
     public $timestamps = false;
 
-    protected $fillable = ['name', 'link'];
+    protected $fillable = ['name'];
 
     public function levels()
     {

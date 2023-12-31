@@ -31,11 +31,17 @@ Route::get('/', function () {
 });
 
 Route::get("/group_elements", [GroupElementController::class, "show_all"]);
+Route::get("/athletes", [AthleteController::class, "show_all"]);
 Route::get("/group_elements/{group_elements_id}/levels", [LevelController::class, "show_all"]);
 Route::get("/group_elements/{group_elements_id}/levels/{levels_id}/elements", [ElementController::class, "show_all"]);
 Route::get("/group_elements/{group_elements_id}/levels/{levels_id}/elements/{elements_id}/variations", [VariationController::class, "show_all"]);
-Route::post("/state_element", [StateElementController::class, "update"]);
 
+Route::post("/state_element", [StateElementController::class, "update"]);
+Route::post("/newGroupElement", [GroupElementController::class, "store"]);
+Route::post("/newAthlete", [AthleteController::class, "store"]);
+Route::post("/newLevel", [LevelController::class, "store"]);
+Route::post("/newElement", [ElementController::class, "store"]);
+Route::post("/newVariation", [VariationController::class, "store"]);
 
 
 

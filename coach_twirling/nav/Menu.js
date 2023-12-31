@@ -13,7 +13,14 @@ import MusicScreen from '../screens/MusicScreen';
 import LevelScreen from '../screens/LevelScreen';
 import ElementScreen from '../screens/ElementScreen';
 import VariationScreen from '../screens/VariationScreen';
+import AthleteScreen from '../screens/AthleteScreen';
+
+
 import NewGroupElementScreen from '../screens/NewGroupElementScreen';
+import NewAthleteScreen from '../screens/NewAthleteScreen';
+import NewLevelScreen from '../screens/NewLevelScreen';
+import NewElementScreen from '../screens/NewElementScreen';
+import NewVariationScreen from '../screens/NewVariationScreen';
 
 export default function MyTabs() {
   return (
@@ -24,7 +31,7 @@ export default function MyTabs() {
             tabBarStyle: {
                 height: 90,
                 paddingTop: 0,
-                backgroundColor: 'rgba(34,36,40,1)',
+                backgroundColor: '#6d639f',
                 position: 'absolute',
                 borderTopWidth: 0,
             },
@@ -40,7 +47,7 @@ export default function MyTabs() {
                  tabBarIcon: () => (
                      <Image
                          style={{ width: 50, height: 50 }}
-                         source={require("../assets/back.png")}/>
+                         source={require("../assets/home.png")}/>
                  )
             }} 
         />
@@ -56,7 +63,7 @@ export default function MyTabs() {
                 tabBarIcon: () => (
                     <Image
                         style={{ width: 50, height: 50 }}
-                        source={require("../assets/back.png")}/>
+                        source={require("../assets/technic.png")}/>
                 )
             }} 
         />
@@ -72,7 +79,39 @@ export default function MyTabs() {
                  tabBarIcon: () => (
                      <Image
                          style={{ width: 50, height: 50 }}
-                         source={require("../assets/back.png")}/>
+                         source={require("../assets/music.png")}/>
+                 )
+            }} 
+        />
+
+        <Tab.Screen
+            name="Entrainement" 
+            component={MusicScreen}
+            options={{ 
+                tabBarLabel: 'Entrainement',
+                tabBarOptions: { 
+                    showIcon: true 
+                 },
+                 tabBarIcon: () => (
+                     <Image
+                         style={{ width: 50, height: 50 }}
+                         source={require("../assets/list.png")}/>
+                 )
+            }} 
+        />
+        
+        <Tab.Screen
+            name="Athletes" 
+            component={AthleteScreen}
+            options={{ 
+                tabBarLabel: 'Athlètes',
+                tabBarOptions: { 
+                    showIcon: true 
+                 },
+                 tabBarIcon: () => (
+                     <Image
+                         style={{ width: 50, height: 50 }}
+                         source={require("../assets/athletes.png")}/>
                  )
             }} 
         />
@@ -107,6 +146,38 @@ export default function MyTabs() {
                 tabBarButton: (props) => null,
             }}>
                 {(props) => <NewGroupElementScreen {...props}/>}
+        </Tab.Screen>
+
+        <Tab.Screen
+            name="NewLevel" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <NewLevelScreen {...props}/>}
+        </Tab.Screen>
+
+        <Tab.Screen
+            name="NewElement" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <NewElementScreen {...props}/>}
+        </Tab.Screen>
+
+        <Tab.Screen
+            name="NewVariation" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <NewVariationScreen {...props}/>}
+        </Tab.Screen>
+        
+        <Tab.Screen
+            name="NewAthlete" 
+            options={{
+                tabBarButton: (props) => null,
+            }}>
+                {(props) => <NewAthleteScreen {...props}/>}
         </Tab.Screen>
 
         </Tab.Navigator>

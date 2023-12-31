@@ -42,7 +42,7 @@ const styles = StyleSheet.create({
         marginBottom: "auto",
     },
     headerStyle: {
-        backgroundColor: "#6610f2",
+        backgroundColor: "#6d639f",
         height: 90
     },
     back: {

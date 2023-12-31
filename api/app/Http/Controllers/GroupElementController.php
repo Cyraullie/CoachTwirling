@@ -13,4 +13,19 @@ class GroupElementController extends Controller
         $groupElems = GroupElement::all();
         return $groupElems;
     }
+
+    
+    public function store(Request $request)
+    {
+        try {
+            $groupElement = new GroupElement();
+            $groupElement->name = $request->input("name");
+            $groupElement->save();
+
+            return response("Ok", 200);
+        } catch (\Exception $e) {
+            return response('Bad request:' . $e->getMessage(), 400);
+        }
+        
+    }
 }

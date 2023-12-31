@@ -1,22 +1,20 @@
-import React, { Component, useEffect } from "react";
-import { StyleSheet, View, Text, ScrollView, TouchableOpacity, Image} from "react-native";
-import DataLevelView from "../components/LevelData";
+import React, { Component } from "react";
+import { StyleSheet, View, Image, ScrollView, TouchableOpacity, } from "react-native";
+import DataAthleteView from "../components/AthleteData";
 
-class LevelScreen extends Component {
+class AthleteScreen extends Component {
     constructor(props) {
-        super(props)
+        super(props),
+        (this.state = { username: "", password: ""});
     }
-     
+ 
     render() {
         return (
             <View style={styles.container}>
-              <View style={styles.title}>
-                <Text style={{textAlign: "center", fontWeight: "bold"}}>{this.props.route.params.name}</Text>
-              </View>
               <ScrollView style={styles.scrollArea}>
-                <DataLevelView id={this.props.route.params.id} name={this.props.route.params.name} nav={this.props.navigation}/>
+                <DataAthleteView nav={this.props.navigation}/>
               </ScrollView>
-              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewLevel", { nav: this.props.navigation, id: this.props.route.params.id}) }>
+              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewAthlete", { nav: this.props.navigation}) }>
                 <Image
                   source={require("../assets/plus.png")}
                   style={styles.image}
@@ -33,6 +31,9 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
   },
   scrollArea: {
+    marginLeft: "auto",
+    marginRight: "auto",
+    width: "90%",
     flex: 1,
     flexDirection: 'column',
   },
@@ -64,4 +65,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default LevelScreen;
+export default AthleteScreen;

@@ -3,7 +3,7 @@ import { StyleSheet, View, Text, ScrollView, TouchableOpacity, TextInput, } from
 import axios from "axios";
 import { BASE_URL } from "@env"
 
-class NewGroupElementScreen extends Component {
+class NewLevelScreen extends Component {
     constructor(props) {
         super(props),
         (this.state = { name: "", _method: "PATCH",});
@@ -11,12 +11,16 @@ class NewGroupElementScreen extends Component {
 
     onPressStore = () => {
       let {name } = this.state;
-      let payload = {name };
-    
+
+      let payload = {name, group_element_id: this.props.route.params.id};
+      
       const onSuccess = () => {
         this.props.navigation.reset({
           index: 0,
-          routes: [{ name: 'Technique' }],
+          routes: [{ name: 'Levels',
+          params: {
+            id: this.props.route.params.id
+          } }],
         })
       };
   
@@ -24,10 +28,10 @@ class NewGroupElementScreen extends Component {
         console.log(error && error.response);
         
       };
-      axios.post(BASE_URL + "newGroupElement", payload ).then(onSuccess).catch(onFailure)
+      axios.post(BASE_URL + "newLevel", payload ).then(onSuccess).catch(onFailure)
     }
     
-    onGroupElementNameChange = (name) => {
+    onNameChange = (name) => {
       this.setState({ name: name });
     };  
 
@@ -35,10 +39,10 @@ class NewGroupElementScreen extends Component {
         return (
             <View style={styles.container}>
             <View style={styles.title}>
-              <Text style={{textAlign: "center", fontWeight: "bold"}}>Nouvelle Technique</Text>
+              <Text style={{textAlign: "center", fontWeight: "bold"}}>Nouvelle Niveau</Text>
             </View>
               <Text style={styles.label}>Nom</Text>               
-              <TextInput defaultValue={this.state.name} style={styles.text_input} onChangeText={this.onGroupElementNameChange}/>
+              <TextInput defaultValue={this.state.name} style={styles.text_input} onChangeText={this.onNameChange}/>
               <TouchableOpacity
                 style={styles.submit}
                 onPress={this.onPressStore.bind(this)}>
@@ -111,4 +115,4 @@ const styles = StyleSheet.create({
 
 });
 
-export default NewGroupElementScreen;
+export default NewLevelScreen;

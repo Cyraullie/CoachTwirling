@@ -4,16 +4,16 @@ import axios from "axios";
 import { BASE_URL } from "@env"
 
 
-export default class DataGroupElementView extends Component {
+export default class DataAthleteView extends Component {
     constructor(props) {
         super(props);
         
-        this.state = {groupElementData: [], _method: "PATCH", data: {}}
+        this.state = {athleteData: [], _method: "PATCH", data: {}}
       }
       getData = () => {
-        axios.get(BASE_URL + "group_elements")
+        axios.get(BASE_URL + "athletes")
         .then((response) => {
-            this.getGroupElementData(response.data) 
+            this.getAthleteData(response.data) 
         })
         .catch(error => {
         console.log(error);
@@ -22,24 +22,23 @@ export default class DataGroupElementView extends Component {
       }
 
 
-      getGroupElementData(data){
-        const groupElementShift = [];
-        
+      getAthleteData(data){
+        const athleteShift = [];
+        //TODO ajout de la suppression et de la modification des athlètes
         for(let i = 0; i < data.length; i++){
-            groupElementShift.push(
+            athleteShift.push(
                 
                 <React.Fragment key={i}>
-                    <TouchableOpacity
-                    style={styles.button}
-                    onPress={() => this.props.nav.navigate("Levels", { id: data[i].id, name: data[i].name})}>
-                        <Text style={styles.buttonText}>{data[i].name}</Text>
-                    </TouchableOpacity>
+                    <View key={i} style={styles.ligne}>
+                        <Text style={styles.texte}>{data[i].firstname}</Text>
+                    </View>
+                    
                 </React.Fragment>
             )
         }
 
         this.setState({
-            groupElementData: groupElementShift,
+            athleteData: athleteShift,
         })
       }
 
@@ -58,7 +57,7 @@ export default class DataGroupElementView extends Component {
     render() {
         return (
             <>
-            {this.state.groupElementData}
+            {this.state.athleteData}
             </>
         );
     }
@@ -84,4 +83,16 @@ const styles = StyleSheet.create({
         borderWidth: 1,
         borderColor: '#fff',
     }, 
+    ligne: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+        alignItems: 'center',
+        paddingVertical: 10,
+        borderBottomWidth: 1,
+        borderBottomColor: '#ccc',
+      },
+      texte: {
+        fontSize: 16,
+        color: "black"
+      },
 });

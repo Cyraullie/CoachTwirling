@@ -1,5 +1,5 @@
 import React, { Component, useEffect } from "react";
-import { StyleSheet, View, ScrollView, Text } from "react-native";
+import { StyleSheet, View, ScrollView, Text, TouchableOpacity, Image } from "react-native";
 import DataVariationView from "../components/VariationData";
 
 class VariationScreen extends Component {
@@ -21,13 +21,18 @@ class VariationScreen extends Component {
               <ScrollView style={styles.scrollArea}>
                 <DataVariationView params={this.props.route.params} nav={this.props.navigation}/>
               </ScrollView>
+              <TouchableOpacity style={styles.floatingButton} onPress={() => this.props.navigation.navigate("NewVariation", { nav: this.props.navigation, params: this.props.route.params}) }>
+                <Image
+                  source={require("../assets/plus.png")}
+                  style={styles.image}
+                />
+              </TouchableOpacity>
             </View>
         );
     }
 }
 
 const styles = StyleSheet.create({
-  //TODO prendre container comme style de base pour les autres écrans
   container: {
     flex: 0.85,
     flexDirection: 'column',
@@ -46,6 +51,20 @@ const styles = StyleSheet.create({
     marginRight: "auto",
     marginTop: 10,
     marginBottom: 20,
+  },
+  floatingButton: {
+    position: 'absolute',
+    bottom: 16,
+    right: 16,
+    backgroundColor: '#6d639f',
+    padding: 10,
+    borderRadius: 50,
+    alignItems: 'center',
+    justifyContent: 'center',
+  }, 
+  image: {
+      width: 40,
+      height: 40,
   },
 });
 
