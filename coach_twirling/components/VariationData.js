@@ -19,7 +19,6 @@ export default class DataVariationView extends Component {
         this.state = {variationData: [], _method: "PATCH", data: {}, checked: 'PC', variation_id: "", athlete_id: ""}
       }
       getData = () => {
-        console.log(this.props.params)
         axios.get(BASE_URL + "group_elements/" + this.props.params.id_groupElement + "/levels/" + this.props.params.id_level + "/elements/" + this.props.params.id_element + "/variations/")
         .then((response) => {
             this.getVariationData(response.data) 
