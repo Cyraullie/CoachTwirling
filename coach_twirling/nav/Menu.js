@@ -29,8 +29,8 @@ export default function MyTabs() {
           screenOptions={{
             header: (props) => <Header {...props}/>, 
             tabBarStyle: {
-                height: 90,
-                paddingTop: 0,
+                height: 70,
+                paddingTop: 20,
                 backgroundColor: '#6d639f',
                 position: 'absolute',
                 borderTopWidth: 0,
@@ -40,13 +40,13 @@ export default function MyTabs() {
             name="Accueil" 
             component={HomeScreen}
             options={{ 
-                tabBarLabel: 'Accueil',
+                tabBarLabel: '',
                 tabBarOptions: { 
                     showIcon: true 
                  },
                  tabBarIcon: () => (
                      <Image
-                         style={{ width: 50, height: 50 }}
+                         style={{ width: 30, height: 30 }}
                          source={require("../assets/home.png")}/>
                  )
             }} 
@@ -56,13 +56,13 @@ export default function MyTabs() {
             name="Technique" 
             component={TechnicalScreen}
             options={{ 
-                tabBarLabel: 'Technique',
+                tabBarLabel: '',
                 tabBarOptions: { 
                     showIcon: true 
                  },
                 tabBarIcon: () => (
                     <Image
-                        style={{ width: 50, height: 50 }}
+                        style={{ width: 35, height: 35 }}
                         source={require("../assets/technic.png")}/>
                 )
             }} 
@@ -72,13 +72,13 @@ export default function MyTabs() {
             name="Musique" 
             component={MusicScreen}
             options={{ 
-                tabBarLabel: 'Musique',
+                tabBarLabel: '',
                 tabBarOptions: { 
                     showIcon: true 
                  },
                  tabBarIcon: () => (
                      <Image
-                         style={{ width: 50, height: 50 }}
+                         style={{ width: 30, height: 30 }}
                          source={require("../assets/music.png")}/>
                  )
             }} 
@@ -88,13 +88,13 @@ export default function MyTabs() {
             name="Entrainement" 
             component={MusicScreen}
             options={{ 
-                tabBarLabel: 'Entrainement',
+                tabBarLabel: '',
                 tabBarOptions: { 
                     showIcon: true 
                  },
                  tabBarIcon: () => (
                      <Image
-                         style={{ width: 50, height: 50 }}
+                         style={{ width: 35, height: 35 }}
                          source={require("../assets/list.png")}/>
                  )
             }} 
@@ -104,13 +104,13 @@ export default function MyTabs() {
             name="Athletes" 
             component={AthleteScreen}
             options={{ 
-                tabBarLabel: 'Athlètes',
+                tabBarLabel: '',
                 tabBarOptions: { 
                     showIcon: true 
                  },
                  tabBarIcon: () => (
                      <Image
-                         style={{ width: 50, height: 50 }}
+                         style={{ width: 40, height: 40 }}
                          source={require("../assets/athletes.png")}/>
                  )
             }} 

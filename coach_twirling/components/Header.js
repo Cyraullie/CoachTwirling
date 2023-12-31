@@ -43,7 +43,7 @@ const styles = StyleSheet.create({
     },
     headerStyle: {
         backgroundColor: "#6d639f",
-        height: 90
+        height: 80
     },
     back: {
         marginTop: "auto",

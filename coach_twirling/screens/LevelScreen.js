@@ -29,7 +29,7 @@ class LevelScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 0.85,
+    flex: 0.88,
     flexDirection: 'column',
   },
   scrollArea: {
