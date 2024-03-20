@@ -84,3 +84,40 @@ nav > .link {
   margin: auto;
   width: 98%;
 }
+
+.TechnicContainer {
+  width: 90%;
+  margin: auto;
+}
+
+.TechnicArea {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+}
+
+.TechnicButton{
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #6d639f;
+  font-size: 18px;
+  width: 30%;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-top: 12px;
+  padding-bottom: 17px;
+  border-radius: 30px;
+  border: 1;
+  border-color: #FFFFFF;
+}
+
+.Title {
+  margin-top: 15px;
+  font-size: 25px;
+  padding: 10px;
+  border-top: 1px solid #000 ;
+  border-bottom: 1px solid #000 ;
+}

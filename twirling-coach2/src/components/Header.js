@@ -1,15 +1,7 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Outlet, Link } from "react-router-dom";
 
 const Header = () => {
-
-  const [isDisplayed, setIsDisplayed] = useState(false);
-
-function handleClick() {
-  setIsDisplayed(!isDisplayed);
-}
-
-
 
   return (
     <>

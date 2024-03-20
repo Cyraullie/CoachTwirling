@@ -28,4 +28,9 @@ class GroupElementController extends Controller
         }
         
     }
+
+    public function show($group_elements_id){
+        $groupElement = GroupElement::find($group_elements_id);
+        return strtoupper($groupElement["name"]);
+    }
 }
