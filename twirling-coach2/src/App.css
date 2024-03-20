@@ -1,0 +1,86 @@
+.App {
+  text-align: center;
+}
+
+.tinyLogo {
+  width: 70px;
+  height: 70px;
+  margin: "auto";
+}
+
+.link {
+  text-decoration: none;
+  color: black;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+nav {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+nav > .link {
+  margin-left: 30px;
+  margin-right: 30px;
+}
+
+@media screen and (max-width: 600px) {
+  /* Ajoutez vos styles CSS pour les téléphones ici */
+  nav > .link {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+
+
+.Header {
+  padding-top: 5px;
+  padding-bottom: 5px;
+  background-color: #6d639f;
+  width: 100vw;
+  height: 80px;
+  top: 0px;
+}
+
+.Footer {
+  background-color: #6d639f;
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+}
+
+.FooterContainer {
+  height: 100%;
+}
+
+.FooterArea {
+  width: 80%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.icon {
+  width: 45px;
+  height: 45px;
+}
+
+.body {
+  height: 90vh;
+  overflow-y: scroll;
+}
+
+
+
+.bodyContainer{
+  margin: auto;
+  width: 98%;
+}
