@@ -1,10 +1,10 @@
-import ElementData from "../components/ElementData";
+import VariationData from "../components/VariationData";
 import { useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
 const Element = () => {
-  let { groupElementId, levelId } = useParams();
+  let { groupElementId, levelId, elementId } = useParams();
   const [technicName, setTechnicName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -22,7 +22,7 @@ const Element = () => {
     };
 
     fetchData();
-  }, [levelId]); // Effect se déclenche à chaque changement d'ID
+  }, [elementId]); // Effect se déclenche à chaque changement d'ID
 
   if (loading) {
     return <div>Loading...</div>;
@@ -41,7 +41,7 @@ const Element = () => {
         </div>
         
         <div className="TechnicArea">
-          <ElementData groupElementId={groupElementId} levelId={levelId}/>
+          <VariationData groupElementId={groupElementId} levelId={levelId} elementId={elementId}/>
         </div>
       </div>
       )

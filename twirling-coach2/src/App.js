@@ -5,6 +5,8 @@ import Home from "./pages/Home.js";
 import Athlete from "./pages/Athlete.js";
 import Technic from "./pages/Technic.js";
 import Element from "./pages/Element.js";
+import Variation from "./pages/Variation.js"
+import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
 import './App.css';
 import Header from "./components/Header";
@@ -31,7 +33,9 @@ export default function App() {
           <Route path="/">
             <Route index element={<Home />} />
             <Route path="technic" element={<Technic />} />
-            <Route path="technic/:id" element={<Element />} />
+            <Route path="technic/:id" element={<Level />} />
+            <Route path="technic/:groupElementId/level/:levelId" element={<Element />} />
+            <Route path="technic/:groupElementId/level/:levelId/variation/:variationId" element={<Variation />} />
             <Route path="athlete" element={<Athlete />} />
             <Route path="music" element={<Home />} />
             <Route path="*" element={<NoPage />} />

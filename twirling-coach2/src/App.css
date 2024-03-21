@@ -103,7 +103,7 @@ nav > .link {
   color: #FFFFFF;
   background-color: #6d639f;
   font-size: 18px;
-  width: 30%;
+  width: 290px;
   margin-left: 10px;
   margin-right: 10px;
   margin-top: 10px;
@@ -114,10 +114,43 @@ nav > .link {
   border-color: #FFFFFF;
 }
 
+.ElementButton{
+  text-decoration: none;
+  color: #FFFFFF;
+  background-color: #6d639f;
+  font-size: 18px;
+  width: 150px;
+  height: 120px;
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 10px;
+  padding-top: 12px;
+  padding-bottom: 17px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .Title {
   margin-top: 15px;
   font-size: 25px;
   padding: 10px;
   border-top: 1px solid #000 ;
   border-bottom: 1px solid #000 ;
+}
+
+.TitleElement {
+  display: flex;
+  flex-direction: column;
+  margin-top: 15px;
+  font-size: 25px;
+  padding: 10px;
+  border-top: 1px solid #000 ;
+  border-bottom: 1px solid #000 ;
+}
+
+.TitleElement > a {
+  width: 200px;
+  font-size: 25px;
+  margin: auto;
 }

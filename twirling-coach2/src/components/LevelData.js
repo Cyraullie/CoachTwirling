@@ -2,16 +2,16 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ElementData = ({ groupElementId, levelId }) => {
-    const [elementData, setElementData] = useState([]);
+const LevelData = ({ groupElementId }) => {
+    const [levelData, setLevelData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
     
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}/elements`);
-          setElementData(response.data);
+          const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels`);
+          setLevelData(response.data);
           setLoading(false);
         } catch (error) {
           setError(error);
@@ -20,7 +20,7 @@ const ElementData = ({ groupElementId, levelId }) => {
       };
   
       fetchData();
-    }, [levelId]); // Effect se déclenche à chaque changement d'ID
+    }, [groupElementId]); // Effect se déclenche à chaque changement d'ID
   
     if (loading) {
       return <div>Loading...</div>;
@@ -33,9 +33,9 @@ const ElementData = ({ groupElementId, levelId }) => {
     return (
       <>
       
-        { elementData.map((element, index) => (
-            <Link key={index} className="ElementButton" to={{
-              pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/"+ element.id,
+        { levelData.map((element, index) => (
+            <Link key={index} className="TechnicButton" to={{
+              pathname: "/technic/" + groupElementId + "/level/" + element.id,
           }}>
               {element.name.toUpperCase()}
           </Link>
@@ -43,4 +43,4 @@ const ElementData = ({ groupElementId, levelId }) => {
       </>
       )
     };  
-export default ElementData
+export default LevelData

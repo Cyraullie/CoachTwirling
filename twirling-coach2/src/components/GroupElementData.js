@@ -26,8 +26,7 @@ const GroupElementData = () => {
       <>
         { groupElementData.map((element, index) => (
             <Link key={index} className="TechnicButton" to={{
-                pathname: "/technic/" + element.id,    
-                state: { elementName: element.name }
+                pathname: "/technic/" + element.id,
             }}>
                 {element.name.toUpperCase()}
             </Link>

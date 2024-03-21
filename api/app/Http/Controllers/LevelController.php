@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Level;
+use App\Models\GroupElement;
 
 class LevelController extends Controller
 {
@@ -26,5 +27,14 @@ class LevelController extends Controller
         } catch (\Exception $e) {
             return response('Bad request:' . $e->getMessage(), 400);
         }
+    }
+
+    public function show($group_elements_id, $levels_id){
+        $level = Level::find($levels_id);
+        $groupElement = GroupElement::find($group_elements_id);
+        
+        $array = [strtoupper($groupElement["name"]), strtoupper($level["name"])];
+
+        return $array;
     }
 }

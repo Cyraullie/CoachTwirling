@@ -23,6 +23,7 @@ class VariationController extends Controller
         return $array;
     }
 
+    
     public function store(Request $request)
     {
         try {

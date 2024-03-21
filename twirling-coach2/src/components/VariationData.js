@@ -2,7 +2,7 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const ElementData = ({ groupElementId, levelId }) => {
+const VariationData = ({ groupElementId, levelId, elementId }) => {
     const [elementData, setElementData] = useState([]);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -10,7 +10,8 @@ const ElementData = ({ groupElementId, levelId }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}/elements`);
+          const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}/elements/${elementId}/variations/`);
+          console.log(response.data)
           setElementData(response.data);
           setLoading(false);
         } catch (error) {
@@ -33,14 +34,8 @@ const ElementData = ({ groupElementId, levelId }) => {
     return (
       <>
       
-        { elementData.map((element, index) => (
-            <Link key={index} className="ElementButton" to={{
-              pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/"+ element.id,
-          }}>
-              {element.name.toUpperCase()}
-          </Link>
-        ))}
+        
       </>
       )
     };  
-export default ElementData
+export default VariationData
