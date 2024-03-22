@@ -35,7 +35,7 @@ export default function App() {
             <Route path="technic" element={<Technic />} />
             <Route path="technic/:id" element={<Level />} />
             <Route path="technic/:groupElementId/level/:levelId" element={<Element />} />
-            <Route path="technic/:groupElementId/level/:levelId/variation/:variationId" element={<Variation />} />
+            <Route path="technic/:groupElementId/level/:levelId/variation/:elementId" element={<Variation />} />
             <Route path="athlete" element={<Athlete />} />
             <Route path="music" element={<Home />} />
             <Route path="*" element={<NoPage />} />
