@@ -218,3 +218,42 @@ nav > .link {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
 }
+
+.StateArea {
+  width: 150px;
+  display: flex;
+  flex-direction: row;
+}
+
+.StateSelect {
+  -webkit-appearance: none; /* Pour les navigateurs WebKit (Safari, Chrome, etc.) */
+  -moz-appearance: none; /* Pour les navigateurs basés sur Gecko (Firefox) */
+  appearance: none; /* Pour les autres navigateurs */
+  border: none; /* Supprimer la bordure */
+  outline: none; /* Supprimer le contour */
+  background: transparent; /* Fond transparent */
+}
+
+.Sticker {
+  background-color: #6d639f;
+  height: 15px;
+  width: 15px;
+  border-radius: 20px;
+  margin: auto;
+}
+
+.PC {
+  background-color: #FFFFFF;
+}
+
+.C {
+  background-color: red;
+}
+
+.R {
+  background-color: orange;
+}
+
+.V {
+  background-color: greenyellow;
+}

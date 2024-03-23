@@ -7,6 +7,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
   const [error, setError] = useState(null);
   const [isOpenState, setIsOpenState] = useState([]);
   const [isGroupOpenState, setIsGroupOpenState] = useState([]);
+  const [selectedOptions, setSelectedOptions] = useState({});
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,12 +39,13 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
   };
 
   const handleStateElementChange = (newValue, athleteId, variationId) => {
-    console.log(`Athlète ${athleteId}, Variation ${variationId}, Nouvelle valeur ${newValue}`);
     let payload = {variation_id: variationId, athlete_id: athleteId, state: newValue}
-    console.log(payload)
     axios.post("http://localhost:8000/api/state_element/" , payload)
       .then((response) => {
-
+        setSelectedOptions({
+          ...selectedOptions,
+          [`${athleteId}-${variationId}`]: newValue
+        });
       })
     .catch(error => {
       console.log(error.response.request._response);
@@ -74,7 +76,11 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
                     return (
                       <div className="AthleteArea" key={athleteIndex}>
                         <a>{athlete.firstname}</a>
-                        <select 
+                        <div className="StateArea">
+                          <a className={`Sticker ${selectedOptions[`${athlete.id}-${variation.id}`] || (result !== undefined ? result.state : "PC")}`} />
+                          
+                          <select 
+                          className="StateSelect"
                           defaultValue={result !== undefined ? result.state : "PC"}
                           onChange={(event) => handleStateElementChange(event.target.value, athlete.id, variation.id)
                         }>
@@ -83,6 +89,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
                           <option value="R">Réussi</option>
                           <option value="V">Validé</option>
                         </select>
+                        </div>
                       </div>
                     );
                   } else {
