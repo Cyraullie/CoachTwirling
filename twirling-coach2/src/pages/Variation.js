@@ -1,9 +1,9 @@
 import VariationData from "../components/VariationData";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Element = () => {
+const Variation = () => {
   let { groupElementId, levelId, elementId } = useParams();
   const [technicName, setTechnicName] = useState("");
   const [loading, setLoading] = useState(true);
@@ -42,8 +42,13 @@ const Element = () => {
         
         <div className="TechnicArea">
           <VariationData groupElementId={groupElementId} levelId={levelId} elementId={elementId}/>
+          <Link className="AddButton" to={{
+                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/" + elementId + "/new",
+            }}>
+                <img src="/plus.png" />
+            </Link>
         </div>
       </div>
       )
     };  
-    export default Element;
+    export default Variation;
