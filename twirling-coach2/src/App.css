@@ -29,13 +29,6 @@ nav > .link {
   margin-right: 30px;
 }
 
-@media screen and (max-width: 600px) {
-  /* Ajoutez vos styles CSS pour les téléphones ici */
-  nav > .link {
-    margin-left: 20px;
-    margin-right: 20px;
-  }
-}
 
 
 
@@ -184,13 +177,6 @@ nav > .link {
   width: 47%;
 }
 
-@media screen and (max-width: 600px) {
-  /* Ajoutez vos styles CSS pour les téléphones ici */
-  .VariationArea {
-    width: 100%;
-  }
-}
-
 .GroupAthleteTitle {
   font-size: 20px;
   border-bottom: 1px solid #000;
@@ -256,4 +242,83 @@ nav > .link {
 
 .V {
   background-color: greenyellow;
+}
+
+.AddButton {
+  display: block;
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+}
+
+
+
+.AddButton > img {
+  height: 45px;
+  width: 45px;
+  background-color: #6d639f;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+.StoreArea {
+  display: flex;
+  flex-direction: column;
+}
+
+.text_input {
+  border: gray 1 solid;
+  font-size: 16px;
+  padding: 10px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 5px;
+}
+
+.label {
+  font-size: 18px;
+  margin-bottom: 5px;
+  margin-top: 20px;
+}
+
+.submit {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-size: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: #6d639f;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  border: #FFFFFF 0 solid;
+}
+
+
+
+@media screen and (max-width: 600px) {
+  /* Ajoutez vos styles CSS pour les téléphones ici */
+  nav > .link {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+  
+  .AddButton {
+    bottom: 110px;
+  }
+
+  .submit {
+    width: 90%;
+  }
+
+  .text_input {
+    width: 80%;
+  }
+
+  .VariationArea {
+    width: 100%;
+  }
 }
