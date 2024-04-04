@@ -297,6 +297,18 @@ nav > .link {
   border: #FFFFFF 0 solid;
 }
 
+.AthleteContainer {
+  width: 90%;
+  margin: auto;
+}
+
+.AthleteArea {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+}
 
 
 @media screen and (max-width: 600px) {

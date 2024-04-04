@@ -1,9 +1,13 @@
 import { Link } from "react-router-dom";
+import DataAthleteView from "../components/AthleteData";
 
 const Athlete = () => {
     return (
-      <div className="body">
-        <h1>Athlètes</h1>;
+      <div className="AthleteContainer">
+        <h1>Athlètes</h1>
+        <div className="AthleteArea">
+        <DataAthleteView/>
+        </div>
         <Link className="AddButton" to={{
                 pathname: "/athlete_new",
             }}>
