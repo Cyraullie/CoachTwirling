@@ -7,6 +7,9 @@ import Technic from "./pages/Technic.js";
 import Element from "./pages/Element.js";
 import Variation from "./pages/Variation.js"
 import NewVariation from "./pages/NewVariation.js"
+import NewElement from "./pages/NewElement.js"
+import NewLevel from "./pages/NewLevel.js"
+import NewTechnic from "./pages/NewGroupElement.js"
 import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
 import './App.css';
@@ -37,7 +40,10 @@ export default function App() {
             <Route path="technic/:id" element={<Level />} />
             <Route path="technic/:groupElementId/level/:levelId" element={<Element />} />
             <Route path="technic/:groupElementId/level/:levelId/variation/:elementId" element={<Variation />} />
-            <Route path="technic/:groupElementId/level/:levelId/variation/:elementId/new" element={<NewVariation />} />
+            <Route path="technic/:groupElementId/level/:levelId/variation/:elementId/variation_new" element={<NewVariation />} />
+            <Route path="technic/:groupElementId/level/:levelId/element_new" element={<NewElement />} />
+            <Route path="technic/:groupElementId/level_new" element={<NewLevel/>} />
+            <Route path="technic_new" element={<NewTechnic />} />
             <Route path="athlete" element={<Athlete />} />
             <Route path="music" element={<Home />} />
             <Route path="*" element={<NoPage />} />

@@ -43,7 +43,7 @@ const Variation = () => {
         <div className="TechnicArea">
           <VariationData groupElementId={groupElementId} levelId={levelId} elementId={elementId}/>
           <Link className="AddButton" to={{
-                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/" + elementId + "/new",
+                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/" + elementId + "/variation_new",
             }}>
                 <img src="/plus.png" />
             </Link>

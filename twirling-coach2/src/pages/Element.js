@@ -1,5 +1,5 @@
 import ElementData from "../components/ElementData";
-import { useParams } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
@@ -42,6 +42,11 @@ const Element = () => {
         
         <div className="TechnicArea">
           <ElementData groupElementId={groupElementId} levelId={levelId}/>
+          <Link className="AddButton" to={{
+                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/element_new",
+            }}>
+                <img src="/plus.png" />
+            </Link>
         </div>
       </div>
       )
