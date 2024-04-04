@@ -10,6 +10,7 @@ import NewVariation from "./pages/NewVariation.js"
 import NewElement from "./pages/NewElement.js"
 import NewLevel from "./pages/NewLevel.js"
 import NewTechnic from "./pages/NewGroupElement.js"
+import NewAthlete from "./pages/NewAthlete.js"
 import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
 import './App.css';
@@ -44,6 +45,7 @@ export default function App() {
             <Route path="technic/:groupElementId/level/:levelId/element_new" element={<NewElement />} />
             <Route path="technic/:groupElementId/level_new" element={<NewLevel/>} />
             <Route path="technic_new" element={<NewTechnic />} />
+            <Route path="athlete_new" element={<NewAthlete />} />
             <Route path="athlete" element={<Athlete />} />
             <Route path="music" element={<Home />} />
             <Route path="*" element={<NoPage />} />
