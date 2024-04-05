@@ -49,8 +49,7 @@ class AthleteController extends Controller
             }
     
             if ($group1 !== "vide" && $group1 !== "aucun" && $athlete->group_athlete_id1 != $group1) {
-                //return response("1:".$group1, 400);
-                $athlete->group_athlete_id1 = null;
+                $athlete->group_athlete_id1 = $group1;
                 $changes = true;
             } elseif ($group1 === "aucun") { // Si le groupe1 est null ou égal à zéro, supprimer le groupe
                 $athlete->group_athlete_id1 = null;
@@ -58,7 +57,6 @@ class AthleteController extends Controller
             }
     
             if ($group2 !== "vide" && $group2 !== "aucun" && $athlete->group_athlete_id2 != $group2) {
-                //return response("2:".$group2, 400);
                 $athlete->group_athlete_id2 = $group2;
                 $changes = true;
             } elseif ($group2 === "aucun") { // Si le groupe2 est null ou égal à zéro, supprimer le groupe
