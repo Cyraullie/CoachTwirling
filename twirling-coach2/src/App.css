@@ -305,9 +305,12 @@ nav > .link {
 .AthleteArea {
   display: flex;
   justify-content: center;
-  flex-wrap: wrap;
-  flex-direction: row;
+  flex-direction: column;
   margin-top: 10px;
+}
+
+.Disable {
+  filter: grayscale(100%) !important;
 }
 
 

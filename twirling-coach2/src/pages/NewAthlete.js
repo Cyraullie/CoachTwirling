@@ -25,8 +25,6 @@ const NewAthlete = () => {
 
   const onPressStore = () => { 
     let payload = {firstname: firstname, group1: group1, group2: group2 };
-    console.log(group1)
-    console.log(group2)
     const onSuccess = () => {
       navigate('/athlete')
     };
