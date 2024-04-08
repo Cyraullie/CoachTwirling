@@ -40,12 +40,12 @@ const Level = () => {
         
         <div className="TechnicArea">
           <LevelData groupElementId={id}/>
-          <Link className="AddButton" to={{
+        </div>
+        <Link className="AddButton" to={{
                 pathname: "/technic/" + id + "/level_new",
             }}>
                 <img src="/plus.png" />
             </Link>
-        </div>
       </div>
       )
     };  

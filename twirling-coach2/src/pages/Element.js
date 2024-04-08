@@ -42,12 +42,12 @@ const Element = () => {
         
         <div className="TechnicArea">
           <ElementData groupElementId={groupElementId} levelId={levelId}/>
-          <Link className="AddButton" to={{
+        </div>
+        <Link className="AddButton" to={{
                 pathname: "/technic/" + groupElementId + "/level/" + levelId + "/element_new",
             }}>
                 <img src="/plus.png" />
             </Link>
-        </div>
       </div>
       )
     };  
