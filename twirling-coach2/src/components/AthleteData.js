@@ -75,7 +75,7 @@ const AthleteData = () => {
             onChange={(e) => onFirstnameChange(athlete.id, e.target.value)}
           ></input>
           <select
-            className="AthleteEditInput"
+            className="AthleteEditSelect"
             defaultValue={athlete.group_athlete_id1}
             onChange={(event) =>
               onGroup1Change(athlete.id, event.target.value)
@@ -89,7 +89,7 @@ const AthleteData = () => {
             <option value="5">Samedi</option>
           </select>
           <select
-            className="AthleteEditInput"
+            className="AthleteEditSelect"
             defaultValue={athlete.group_athlete_id2}
             onChange={(event) =>
               onGroup2Change(athlete.id, event.target.value)
@@ -104,7 +104,7 @@ const AthleteData = () => {
           </select>
           <a onClick={() => isUpdatedMap[athlete.id] && saveChanges(athlete.id)}>
             <img
-              className={isUpdatedMap[athlete.id] ? "icon" : "icon Disable"}
+              className={isUpdatedMap[athlete.id] ? "icon_save" : "icon_save Disable"}
               src="/save.png"
             />
           </a>

@@ -5,7 +5,7 @@ const Athlete = () => {
     return (
       <div className="AthleteContainer">
         <h1>Athlètes</h1>
-        <div className="AthleteArea">
+        <div className="AthleteEditArea">
         <DataAthleteView/>
         </div>
         <Link className="AddButton" to={{
