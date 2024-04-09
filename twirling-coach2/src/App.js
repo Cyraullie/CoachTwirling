@@ -2,6 +2,7 @@ import ReactDOM from "react-dom/client";
 import React, { useState } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home.js";
+import Music from "./pages/Music.js";
 import Athlete from "./pages/Athlete.js";
 import Technic from "./pages/Technic.js";
 import Element from "./pages/Element.js";
@@ -47,7 +48,7 @@ export default function App() {
             <Route path="technic_new" element={<NewTechnic />} />
             <Route path="athlete_new" element={<NewAthlete />} />
             <Route path="athlete" element={<Athlete />} />
-            <Route path="music" element={<Home />} />
+            <Route path="music" element={<Music />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

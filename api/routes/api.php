@@ -30,6 +30,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get("/musics", [MusicController::class, "show_all"]);
+
 Route::get("/group_elements", [GroupElementController::class, "show_all"]);
 Route::get("/athletes", [AthleteController::class, "show_all"]);
 Route::get("/group_elements/{group_elements_id}", [GroupElementController::class, "show"]);
