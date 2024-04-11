@@ -117,7 +117,7 @@ CREATE TABLE IF NOT EXISTS `twirling`.`state_elements` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `athlete_id` INT NOT NULL,
   `variation_id` INT NOT NULL,
-  `state` ENUM('PC', 'C', 'R', 'V') NOT NULL DEFAULT 'PC',
+  `state` ENUM('PC', 'C', 'R', 'V') NOT NULL DEFAULT ' ',
   INDEX `fk_athletes_has_elements_athletes1_idx` (`athlete_id` ASC) VISIBLE,
   INDEX `fk_state_elements_variations1_idx` (`variation_id` ASC) VISIBLE,
   PRIMARY KEY (`id`),
@@ -140,7 +140,7 @@ ENGINE = InnoDB;
 CREATE TABLE IF NOT EXISTS `twirling`.`musics` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(255) NOT NULL,
-  `extension` VARCHAR(255) NOT NULL,
+  `img_filename` VARCHAR(255) NOT NULL,
   `filename` VARCHAR(255) NOT NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;

@@ -347,6 +347,140 @@ nav > .link {
   height: 45px;
 }
 
+.MusicContainer {
+  width: 90%;
+  margin: auto;
+}
+
+.MusicArea {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  width: 60%;
+  margin: auto;
+}
+
+.MusicImage {
+  width: 200px;
+  height: 200px;
+  margin: auto;
+}
+
+.MusicTitre {
+  width: 300px;
+  height: 50px;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  position: relative;
+}
+
+.MusicTitre > a {
+  margin: auto;
+  font-size: 18px;
+  animation: scrollText 10s linear infinite;
+}
+
+@keyframes scrollText {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+.MusicAvancement {
+  width: 300px;
+  height: 50px;
+  background-color: green;
+  margin: auto;
+  margin-bottom: -5px;
+}
+
+.MusicTimer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px; 
+  margin: auto;
+  margin-top: -5px;
+}
+
+.MusicControls {
+  display: flex;
+  flex-direction: row;
+  margin: auto; 
+  margin-bottom: 20px;
+
+}
+
+
+.MusicBefore {
+  width: 50px;
+  height: 50px;
+}
+
+.MusicPlayPause {
+  width: 50px;
+  height: 50px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.MusicButton {
+  height: 50px;
+  width: 50px;
+  cursor: pointer;
+}
+
+.MusicNext {
+  width: 50px;
+  height: 50px;
+}
+
+.MusicVolumeArea {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 300px;
+  height: 20px;
+  margin: auto;
+  margin-bottom: 20px;
+}
+
+.MusicVolume {
+  width: 240px;
+  height: 20px;
+}
+
+.MusicIcon {
+  margin-top: 2px;
+  height: 20px;
+}
+
+.MusicPlaylist {
+  width: 500px;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.MusicPlaylist > div {
+  cursor: pointer;  
+  margin-bottom: 10px;
+}
+
+.PlaylistTitle {
+  border-bottom: grey 1px solid;
+  padding-bottom: 10px;
+}
+
+
 @media screen and (max-width: 600px) {
   /* Ajoutez vos styles CSS pour les téléphones ici */
   nav > .link {
@@ -413,5 +547,13 @@ nav > .link {
 
   .AthleteContainer > h1 {
     border-bottom: #000 1px solid;
+  }
+
+  .MusicArea {
+    width: 100%;
+  }
+
+  .MusicPlaylist {
+    width: 100%;
   }
 }

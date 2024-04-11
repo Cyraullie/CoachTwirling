@@ -71,3 +71,6 @@ INSERT INTO state_elements (athlete_id, variation_id, state) VALUES (6, 1, "R");
 INSERT INTO state_elements (athlete_id, variation_id, state) VALUES (6, 2, "PC");
 
 
+
+INSERT INTO musics (name, img_filename, filename) VALUES ("background", "background.png", "background.mp3");
+INSERT INTO musics (name, img_filename, filename) VALUES ("boss", "boss.png", "boss.mp3");
