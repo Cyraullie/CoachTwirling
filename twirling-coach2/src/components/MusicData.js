@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const MusicData = () => {
     const [elementData, setElementData] = useState([]);
@@ -10,7 +11,7 @@ const MusicData = () => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/musics`);
+          const response = await axios.get(apiUrl + `musics`);
           setElementData(response.data);
           setLoading(false);
         } catch (error) {

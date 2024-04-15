@@ -1,13 +1,14 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const GroupElementData = () => {
     const [groupElementData, setGroupElementData] = useState([]);
 
 
     const getData = () => {
-        axios.get("http://localhost:8000/api/group_elements")
+        axios.get(apiUrl + "group_elements")
         .then((response) => {
             setGroupElementData(response.data) 
         })

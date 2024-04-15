@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const ElementData = ({ groupElementId, levelId }) => {
     const [elementData, setElementData] = useState([]);
@@ -10,7 +11,7 @@ const ElementData = ({ groupElementId, levelId }) => {
     useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}/elements`);
+          const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}/elements`);
           setElementData(response.data);
           setLoading(false);
         } catch (error) {

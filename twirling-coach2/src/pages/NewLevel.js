@@ -2,6 +2,7 @@ import VariationData from "../components/VariationData";
 import { Link, useParams, useNavigate } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const NewLevel = () => {
   const navigate = useNavigate();
@@ -23,7 +24,7 @@ const NewLevel = () => {
       console.log(error && error.response);
       
     };
-    axios.post("http://localhost:8000/api/newLevel", payload ).then(onSuccess).catch(onFailure)
+    axios.post(apiUrl + "newLevel", payload ).then(onSuccess).catch(onFailure)
   };  
 
     return ( 

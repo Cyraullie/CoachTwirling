@@ -1,14 +1,7 @@
 import { Link } from "react-router-dom";
 import axios from "axios";
-/*
-<Link className="AddButton" to={{
-                pathname: "/athlete_new",
-            }}>
-                <img src="/plus.png" />
-            </Link>
-*/
-
 import React, { useState, useEffect } from 'react';
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Music = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -24,10 +17,9 @@ const Music = () => {
 
   
   useEffect(() => {
-    
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/musics`);
+        const response = await axios.get(apiUrl + `musics`);
         setTracks(response.data.map(track => track.filename.substring(0, track.filename.length - 4)));
         setTracksName(response.data.map(track => track.name));
         setLoading(false);

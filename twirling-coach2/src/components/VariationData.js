@@ -1,5 +1,6 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const VariationData = ({ groupElementId, levelId, elementId }) => {
   const [variationData, setVariationData] = useState([]);
@@ -12,7 +13,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}/elements/${elementId}/variations/`);
+        const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}/elements/${elementId}/variations/`);
         setVariationData(response.data);
         setIsOpenState(Array(response.data[0].length).fill(false)); // Initialiser l'état pour chaque VariationTitle
         setIsGroupOpenState(Array(response.data[2].length).fill(false)); // Initialiser l'état pour chaque GroupAthleteTitle
@@ -40,7 +41,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
 
   const handleStateElementChange = (newValue, athleteId, variationId) => {
     let payload = {variation_id: variationId, athlete_id: athleteId, state: newValue}
-    axios.post("http://localhost:8000/api/state_element/" , payload)
+    axios.post(apiUrl + "state_element/" , payload)
       .then((response) => {
         setSelectedOptions({
           ...selectedOptions,

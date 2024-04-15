@@ -2,6 +2,7 @@ import ElementData from "../components/ElementData";
 import { useParams, Link } from "react-router-dom";
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const Element = () => {
   let { groupElementId, levelId } = useParams();
@@ -12,7 +13,7 @@ const Element = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(`http://localhost:8000/api/group_elements/${groupElementId}/levels/${levelId}`);
+        const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}`);
         setTechnicName(response.data);
         setLoading(false);
       } catch (error) {

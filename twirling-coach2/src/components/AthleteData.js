@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 const AthleteData = () => {
   const navigate = useNavigate();
@@ -16,7 +17,7 @@ const AthleteData = () => {
 
   const getData = () => {
     axios
-      .get("http://localhost:8000/api/athletes")
+      .get(apiUrl + "athletes")
       .then((response) => {
         const initialIsUpdatedMap = {};
         response.data.forEach((element) => {
@@ -62,7 +63,7 @@ const AthleteData = () => {
     const onFailure = (error) => {
       console.log(error && error.response);
     };
-    axios.post("http://localhost:8000/api/athlete/" + athleteId, payload ).then(onSuccess).catch(onFailure)
+    axios.post(apiUrl + "athlete/" + athleteId, payload ).then(onSuccess).catch(onFailure)
   };
 //TODO mettre des styles parce que c'est vraiment moche
   return (

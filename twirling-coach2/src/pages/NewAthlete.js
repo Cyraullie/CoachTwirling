@@ -2,6 +2,7 @@ import VariationData from "../components/VariationData";
 import {useNavigate } from "react-router-dom";
 import React, { useState } from "react";
 import axios from "axios";
+const apiUrl = process.env.REACT_APP_API_URL;
 
 
 
@@ -33,7 +34,7 @@ const NewAthlete = () => {
       console.log(error && error.response);
       
     };
-    axios.post("http://localhost:8000/api/newAthlete", payload ).then(onSuccess).catch(onFailure)
+    axios.post(apiUrl + "newAthlete", payload ).then(onSuccess).catch(onFailure)
   };  
 
     return ( 
