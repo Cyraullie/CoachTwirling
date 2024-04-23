@@ -45,7 +45,7 @@ const Level = () => {
         <Link className="AddButton" to={{
                 pathname: "/technic/" + id + "/level_new",
             }}>
-                <img src="/plus.png" />
+                <img src="./plus.png" />
             </Link>
       </div>
       )

@@ -65,7 +65,7 @@ const AthleteData = () => {
     };
     axios.post(apiUrl + "athlete/" + athleteId, payload ).then(onSuccess).catch(onFailure)
   };
-//TODO mettre des styles parce que c'est vraiment moche
+  
   return (
     <>
       {athleteData.map((athlete) => (
@@ -106,7 +106,7 @@ const AthleteData = () => {
           <a onClick={() => isUpdatedMap[athlete.id] && saveChanges(athlete.id)}>
             <img
               className={isUpdatedMap[athlete.id] ? "icon_save" : "icon_save Disable"}
-              src="/save.png"
+              src="./save.png"
             />
           </a>
         </div>

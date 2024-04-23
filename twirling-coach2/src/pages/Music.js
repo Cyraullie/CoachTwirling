@@ -97,7 +97,7 @@ const Music = () => {
 
   function playTrack(trackIndex) {
     const audioElement = document.getElementById('myAudio');
-    audioElement.src = "/musics/" + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
+    audioElement.src = "./musics/" + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
 
   }
 
@@ -127,12 +127,12 @@ const Music = () => {
 
         <audio id="myAudio" loop >
           {/* Chaque élément <source> doit être fermé correctement */}
-          <source src={"/musics/" + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
+          <source src={"./musics/" + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
           <p>Votre navigateur ne prend pas en charge l'élément audio.</p>
         </audio>
 
         <div className="MusicImage">
-            <img className="MusicImage" src={"/musics/" + tracks[currentTrack] + ".png"} alt="image de la musique"></img>
+            <img className="MusicImage" src={"./musics/" + tracks[currentTrack] + ".png"} alt="image de la musique"></img>
           </div>
         <div className="MusicTitre">
         <a>{tracksName[currentTrack]}</a>
@@ -152,18 +152,18 @@ const Music = () => {
 
         <div className="MusicControls">
           <a className="MusicBefore" onClick={handlePreviousTrack}>
-            <img className="MusicButton" src='/previous.png'></img>
+            <img className="MusicButton" src='./previous.png'></img>
           </a>
           <a className="MusicPlayPause" onClick={togglePlay}>
-            <img className="MusicButton" src={isPlaying ? '/pause.png' : '/play.png'}></img>
+            <img className="MusicButton" src={isPlaying ? './pause.png' : './play.png'}></img>
           </a>
           <a className="MusicNext" onClick={handleNextTrack}>
-            <img className="MusicButton" src='/next.png'></img>
+            <img className="MusicButton" src='./next.png'></img>
           </a>
         </div>
           <div className="MusicVolumeArea">
             
-          <img className="MusicIcon" src='/mute.png'></img>
+          <img className="MusicIcon" src='./mute.png'></img>
             <input
               className="MusicVolume"
               type="range"
@@ -175,7 +175,7 @@ const Music = () => {
               value={volume}
               onChange={handleVolumeChange}
             />
-            <img className="MusicIcon" src='/sound.png'></img>
+            <img className="MusicIcon" src='./sound.png'></img>
         </div>
 
         <div className="MusicPlaylist">

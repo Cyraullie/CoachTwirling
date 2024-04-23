@@ -9,7 +9,7 @@ const Technic = () => {
           <Link className="AddButton" to={{
                 pathname: "/technic_new",
             }}>
-                <img src="/plus.png" />
+                <img src="./plus.png" />
             </Link>
         </div>
       </div>

@@ -72,11 +72,11 @@ nav > .link {
 }
 
 .body {
-  height: 90vh;
+  height: 90%;
+  position: absolute;
+  width: 100%;
   overflow-y: scroll;
 }
-
-
 
 .bodyContainer{
   margin: auto;

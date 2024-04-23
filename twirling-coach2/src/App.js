@@ -1,6 +1,8 @@
-import ReactDOM from "react-dom/client";
+import ReactDOM from "react-dom";
 import React, { useState } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { HashRouter , Routes, Route } from "react-router-dom";
+import './App.css';
+
 import Home from "./pages/Home.js";
 import Music from "./pages/Music.js";
 import Athlete from "./pages/Athlete.js";
@@ -14,7 +16,7 @@ import NewTechnic from "./pages/NewGroupElement.js"
 import NewAthlete from "./pages/NewAthlete.js"
 import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
-import './App.css';
+
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -28,10 +30,13 @@ export default function App() {
   window.matchMedia("(max-width: 600px)").addListener((e) => {
     setIsSmallScreen(e.matches);
   });
+
+  //TODO mettre le texte des nom de musique a gauche
+  //TODO ajouter la fonctionnalité pour ajouté des musiques
   
   return (
     <div className="App">
-      <BrowserRouter>
+      <HashRouter>
       {!isSmallScreen && <Header />} 
       
       <div className="body">
@@ -55,10 +60,9 @@ export default function App() {
       </div>
         
         {isSmallScreen && <Footer />} 
-      </BrowserRouter>
+      </HashRouter>
     </div>
   );
 }
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
+ReactDOM.render(<App />, document.getElementById('root'));

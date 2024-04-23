@@ -47,7 +47,7 @@ const Element = () => {
         <Link className="AddButton" to={{
                 pathname: "/technic/" + groupElementId + "/level/" + levelId + "/element_new",
             }}>
-                <img src="/plus.png" />
+                <img src="./plus.png" />
             </Link>
       </div>
       )

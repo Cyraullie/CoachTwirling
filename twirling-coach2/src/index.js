@@ -1,12 +1,15 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
+import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
+  <React.StrictMode>  
+    <title>coach twirling</title>
+    <link rel="icon" type="image/png" href="../public/favicon.ico" />
+
     <App />
   </React.StrictMode>
 );

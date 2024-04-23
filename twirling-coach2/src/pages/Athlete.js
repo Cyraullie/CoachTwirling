@@ -11,7 +11,7 @@ const Athlete = () => {
         <Link className="AddButton" to={{
                 pathname: "/athlete_new",
             }}>
-                <img src="/plus.png" />
+                <img src="./plus.png" />
             </Link>
       </div>
       )

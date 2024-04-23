@@ -13,7 +13,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}/elements/${elementId}/variations/`);
+        const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}/elements/${elementId}/variations`);
         setVariationData(response.data);
         setIsOpenState(Array(response.data[0].length).fill(false)); // Initialiser l'état pour chaque VariationTitle
         setIsGroupOpenState(Array(response.data[2].length).fill(false)); // Initialiser l'état pour chaque GroupAthleteTitle
