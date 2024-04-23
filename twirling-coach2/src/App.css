@@ -251,6 +251,18 @@ nav > .link {
   right: 20px;
 }
 
+.AddButtonMusic {
+  display: block;
+  position: relative;
+}
+
+.AddButtonMusic > img {
+  height: 45px;
+  width: 45px;
+  background-color: #6d639f;
+  padding: 10px;
+  border-radius: 50px;
+}
 
 
 .AddButton > img {
@@ -478,6 +490,13 @@ nav > .link {
 .PlaylistTitle {
   border-bottom: grey 1px solid;
   padding-bottom: 10px;
+}
+
+
+.PlaylistMusicName {
+  text-align: left;
+  width: 90%;
+  margin: auto;
 }
 
 

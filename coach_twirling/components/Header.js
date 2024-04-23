@@ -1,20 +1,8 @@
 import React from 'react';
 import {Text, Image, StyleSheet, View, TouchableOpacity} from "react-native";
 import { useNavigation } from '@react-navigation/native';
-/*
 
-TODO faire un bouton pour retourner en arrière
-{navigation.canGoBack() && (
-            <TouchableOpacity style={styles.back} onPress={() => navigation.pop()}>
-                <Image 
-                    style={styles.backImage}
-                    source={require("../assets/back.png")}
-                />
-            </TouchableOpacity>
-            )}
-
-
-*/
+//TODO faire un bouton pour retourner en arrière
 
 
 export function Header() {

@@ -14,6 +14,7 @@ import NewElement from "./pages/NewElement.js"
 import NewLevel from "./pages/NewLevel.js"
 import NewTechnic from "./pages/NewGroupElement.js"
 import NewAthlete from "./pages/NewAthlete.js"
+import NewMusic from "./pages/NewMusic.js";
 import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
 
@@ -30,9 +31,6 @@ export default function App() {
   window.matchMedia("(max-width: 600px)").addListener((e) => {
     setIsSmallScreen(e.matches);
   });
-
-  //TODO mettre le texte des nom de musique a gauche
-  //TODO ajouter la fonctionnalité pour ajouté des musiques
   
   return (
     <div className="App">
@@ -54,6 +52,7 @@ export default function App() {
             <Route path="athlete_new" element={<NewAthlete />} />
             <Route path="athlete" element={<Athlete />} />
             <Route path="music" element={<Music />} />
+            <Route path="music_new" element={<NewMusic />} />
             <Route path="*" element={<NoPage />} />
           </Route>
         </Routes>

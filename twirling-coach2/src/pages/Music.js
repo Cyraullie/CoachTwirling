@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 import React, { useState, useEffect } from 'react';
 const apiUrl = process.env.REACT_APP_API_URL;
+const fileUrl = process.env.REACT_APP_FILE_URL;
 
 const Music = () => {
   const [isPlaying, setIsPlaying] = useState(false);
@@ -97,7 +98,7 @@ const Music = () => {
 
   function playTrack(trackIndex) {
     const audioElement = document.getElementById('myAudio');
-    audioElement.src = "./musics/" + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
+    audioElement.src = fileUrl + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
 
   }
 
@@ -127,12 +128,12 @@ const Music = () => {
 
         <audio id="myAudio" loop >
           {/* Chaque élément <source> doit être fermé correctement */}
-          <source src={"./musics/" + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
+          <source src={fileUrl + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
           <p>Votre navigateur ne prend pas en charge l'élément audio.</p>
         </audio>
 
         <div className="MusicImage">
-            <img className="MusicImage" src={"./musics/" + tracks[currentTrack] + ".png"} alt="image de la musique"></img>
+            <img className="MusicImage" src={fileUrl + tracks[currentTrack] + ".png"} alt="image de la musique"></img>
           </div>
         <div className="MusicTitre">
         <a>{tracksName[currentTrack]}</a>
@@ -181,11 +182,15 @@ const Music = () => {
         <div className="MusicPlaylist">
         <h2 className="PlaylistTitle no-select" onClick={() => toggleOpenState()}>PlayList</h2>
           {showPlaylist && tracks.map((element, index) => (
-            <div onClick={() => switchTrack(index)}>
-              <a>{index+1 + "." }</a>
-              <a>{element}</a>
+            <div className="PlaylistMusicName" onClick={() => switchTrack(index)}>
+              <a key={index}>{index+1 + "." }{element}</a>
             </div>
           ))}
+          <Link className="AddButtonMusic" to={{
+                pathname: "/music_new/",
+            }}>
+                <img src="./plus.png" />
+            </Link>
         </div>
         
       </div>
