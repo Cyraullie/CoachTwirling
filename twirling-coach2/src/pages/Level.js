@@ -36,7 +36,15 @@ const Level = () => {
     return (
       <div className="TechnicContainer">
         <div className="Title">
-          {technicName}
+        <Link className="BackButton" to={{
+                pathname: "/technic/",
+            }}>
+                <img src="./back.png" />
+            </Link>
+            
+          <div className="TitleElement">
+            {technicName}
+          </div>
         </div>
         
         <div className="TechnicArea">

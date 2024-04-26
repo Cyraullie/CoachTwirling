@@ -35,10 +35,18 @@ const Variation = () => {
 
     return (
       <div className="TechnicContainer">
-        <div className="TitleElement">
-          <a>{technicName[0]}</a>
-          <a>{technicName[1]}</a>
-          
+        <div className="Title">
+            <Link className="BackButton" to={{
+                  pathname: "/technic/" + groupElementId + "/level/" + levelId ,
+              }}>
+                  <img src="./back.png" />
+              </Link>
+              
+          <div className="TitleElement">
+            <a>{technicName[0]}</a>
+            <a>{technicName[1]}</a>
+            
+          </div>
         </div>
         
         <div className="TechnicArea">

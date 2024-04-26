@@ -130,6 +130,8 @@ nav > .link {
 }
 
 .Title {
+  display: flex;
+  flex-direction: row;
   margin-top: 15px;
   font-size: 25px;
   padding: 10px;
@@ -140,17 +142,28 @@ nav > .link {
 .TitleElement {
   display: flex;
   flex-direction: column;
-  margin-top: 15px;
+  margin: auto;
   font-size: 25px;
-  padding: 10px;
-  border-top: 1px solid #000 ;
-  border-bottom: 1px solid #000 ;
 }
 
 .TitleElement > a {
   width: 200px;
   font-size: 25px;
   margin: auto;
+}
+
+.BackButton {
+  display: block;
+  height: 40px;
+  width: 40px;
+  margin: auto;
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+.BackButton > img {
+  height: 40px;
+  width: 40px;
 }
 
 .VariationTitle {
@@ -251,6 +264,15 @@ nav > .link {
   right: 20px;
 }
 
+.AddButton > img {
+  height: 45px;
+  width: 45px;
+  background-color: #6d639f;
+  padding: 10px;
+  border-radius: 50px;
+}
+
+
 .AddButtonMusic {
   display: block;
   position: relative;
@@ -265,13 +287,6 @@ nav > .link {
 }
 
 
-.AddButton > img {
-  height: 45px;
-  width: 45px;
-  background-color: #6d639f;
-  padding: 10px;
-  border-radius: 50px;
-}
 
 .StoreArea {
   display: flex;
