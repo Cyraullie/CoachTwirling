@@ -41,7 +41,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
 
   const handleStateElementChange = (newValue, athleteId, variationId) => {
     let payload = {variation_id: variationId, athlete_id: athleteId, state: newValue}
-    axios.post(apiUrl + "state_element/" , payload)
+    axios.post(apiUrl + "state_element" , payload)
       .then((response) => {
         setSelectedOptions({
           ...selectedOptions,
