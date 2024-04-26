@@ -33,13 +33,13 @@ export default class DataVariationView extends Component {
         console.log(`Athlète ${athleteId}, Variation ${variationId}, Nouvelle valeur ${newValue.value}`);
         let payload = {variation_id: variationId, athlete_id: athleteId, state: newValue.value}
         console.log(payload)
-        axios.post(BASE_URL + "state_element/" , payload)
+        /*axios.post(BASE_URL + "state_element" , payload)
           .then((response) => {
 
           })
         .catch(error => {
           console.log(error.response.request._response);
-        });
+        });*/
         //this.setState({ checked: newValue });
       };
 
