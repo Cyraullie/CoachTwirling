@@ -9,6 +9,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
   const [isOpenState, setIsOpenState] = useState([]);
   const [isGroupOpenState, setIsGroupOpenState] = useState([]);
   const [selectedOptions, setSelectedOptions] = useState({});
+  let [isMouseDown, setIsMouseDown] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -39,6 +40,20 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
     setIsGroupOpenState(newIsGroupOpenState);
   };
 
+  /*const handleClickHold = () => {
+    setIsMouseDown = true;
+    setTimeout(function() {
+        if (isMouseDown) {
+            // L'utilisateur a maintenu le clic enfoncé
+            console.log("L'utilisateur a maintenu le clic enfoncé !");
+        }
+    }, 200);
+  }
+
+  const handleClickNotHold = () => {
+    setIsMouseDown = false;
+  }*/
+
   const handleStateElementChange = (newValue, athleteId, variationId) => {
     let payload = {variation_id: variationId, athlete_id: athleteId, state: newValue}
     axios.post(apiUrl + "state_element" , payload)
@@ -67,7 +82,7 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
       <div className="VariationContainer">
         {variationData[0].map((variation, index) => (
           <div className="VariationArea" key={index}>
-            <a className="VariationTitle no-select" onClick={() => toggleOpenState(index)}>{variation.name.toUpperCase()}</a>
+            <a className="VariationTitle no-select" onClick={() => toggleOpenState(index)} /*onMouseDown={() => handleClickHold(index)} onMouseUp={() => handleClickNotHold(index)}*/>{variation.name.toUpperCase()}</a>
             {isOpenState[index] && variationData[2].map((groupAthlete, groupIndex) => (
               <div className="GroupAthleteArea" key={groupIndex}>
                 <a className="GroupAthleteTitle no-select" onClick={() => toggleGroupOpenState(groupIndex)}>{groupAthlete.name.toUpperCase()}</a>
