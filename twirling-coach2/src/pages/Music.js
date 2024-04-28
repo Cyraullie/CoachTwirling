@@ -12,6 +12,7 @@ const Music = () => {
   const [duration, setDuration] = useState(0);
   const [tracks, setTracks] = useState([])
   const [tracksName, setTracksName] = useState([])
+  const [tracksImage, setTracksImage] = useState([])
   const [showPlaylist, setShowPlaylist] = useState(true);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -23,6 +24,7 @@ const Music = () => {
         const response = await axios.get(apiUrl + `musics`);
         setTracks(response.data.map(track => track.filename.substring(0, track.filename.length - 4)));
         setTracksName(response.data.map(track => track.name));
+        setTracksImage(response.data.map(track => track.image_filepath));
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -133,7 +135,7 @@ const Music = () => {
         </audio>
 
         <div className="MusicImage">
-            <img className="MusicImage" src={fileUrl + tracks[currentTrack] + ".png"} alt="image de la musique"></img>
+            <img className="MusicImage" src={fileUrl + tracksImage[currentTrack]} alt="image de la musique"></img>
           </div>
         <div className="MusicTitre">
         <a>{tracksName[currentTrack]}</a>
