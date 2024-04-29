@@ -20,11 +20,11 @@ const Login = ({auth}) => {
   const onPressStore = () => {
     let payload = {username: username, password: password};
 
-    const onSuccess = (data) => {
-      console.log(data)
-      sessionStorage.setItem("user_id", data.data)
+    const onSuccess = (result) => {
+      console.log(result.data)
+      sessionStorage.setItem("user_id", result.data[0])
+      sessionStorage.setItem("role", result.data[1])
       auth(true);
-      navigate('/')
     };
 
     const onFailure = (error) => {

@@ -188,11 +188,16 @@ const Music = () => {
               <a key={index}>{index+1 + "." }{element}</a>
             </div>
           ))}
-          <Link className="AddButtonMusic" to={{
+          {sessionStorage.getItem("role") == 1 ? (
+            <Link className="AddButtonMusic" to={{
                 pathname: "/music_new/",
             }}>
                 <img src="./plus.png" />
             </Link>
+          ) : (
+            null
+          )}
+          
         </div>
         
       </div>

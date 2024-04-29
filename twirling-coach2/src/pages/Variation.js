@@ -32,15 +32,17 @@ const Variation = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-
+//TODO faire diparaite les boutons + si c'est pas le user_id 1 ou 2
     return (
       <div className="TechnicContainer">
         <div className="Title">
-            <Link className="BackButton" to={{
-                  pathname: "/technic/" + groupElementId + "/level/" + levelId ,
-              }}>
-                  <img src="./back.png" />
-              </Link>
+
+          <Link className="BackButton" to={{
+            pathname: "/technic/" + groupElementId + "/level/" + levelId ,
+          }}>
+              <img src="./back.png" />
+          </Link>
+                     
               
           <div className="TitleElement">
             <a>{technicName[0]}</a>
@@ -51,11 +53,17 @@ const Variation = () => {
         
         <div className="TechnicArea">
           <VariationData groupElementId={groupElementId} levelId={levelId} elementId={elementId}/>
-          <Link className="AddButton" to={{
-                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/" + elementId + "/variation_new",
-            }}>
-                <img src="./plus.png" />
-            </Link>
+
+          {sessionStorage.getItem("role") == 1 ? (
+            <Link className="AddButton" to={{
+              pathname: "/technic/" + groupElementId + "/level/" + levelId + "/variation/" + elementId + "/variation_new",
+          }}>
+              <img src="./plus.png" />
+          </Link>
+          ) : (
+            null
+          )}
+          
         </div>
       </div>
       )

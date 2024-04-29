@@ -6,11 +6,17 @@ const Technic = () => {
       <div className="TechnicContainer">
         <div className="TechnicArea">
             <GroupElementData />
-          <Link className="AddButton" to={{
-                pathname: "/technic_new",
+
+            {sessionStorage.getItem("role") == 1 ? (
+            <Link className="AddButton" to={{
+              pathname: "/technic_new",
             }}>
                 <img src="./plus.png" />
             </Link>
+          ) : (
+            null
+          )}
+          
         </div>
       </div>
       )

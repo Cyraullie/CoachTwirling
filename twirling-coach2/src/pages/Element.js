@@ -53,11 +53,17 @@ const Element = () => {
         <div className="TechnicArea">
           <ElementData groupElementId={groupElementId} levelId={levelId}/>
         </div>
-        <Link className="AddButton" to={{
-                pathname: "/technic/" + groupElementId + "/level/" + levelId + "/element_new",
-            }}>
-                <img src="./plus.png" />
-            </Link>
+
+        {sessionStorage.getItem("role") == 1 ? (
+            <Link className="AddButton" to={{
+              pathname: "/technic/" + groupElementId + "/level/" + levelId + "/element_new",
+          }}>
+              <img src="./plus.png" />
+          </Link>
+          ) : (
+            null
+          )}
+        
       </div>
       )
     };  
