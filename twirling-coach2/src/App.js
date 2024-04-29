@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { HashRouter , Routes, Route } from "react-router-dom";
 import './App.css';
 
@@ -21,9 +21,11 @@ import NoPage from "./pages/NoPage";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
+import Login from "./components/Login.js";
 
 
 export default function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isSmallScreen, setIsSmallScreen] = useState(
     window.matchMedia("(max-width: 600px)").matches
   );
@@ -31,34 +33,51 @@ export default function App() {
   window.matchMedia("(max-width: 600px)").addListener((e) => {
     setIsSmallScreen(e.matches);
   });
+
+  useEffect(() => {
+    if(sessionStorage.getItem("user_id")){
+      setIsLoggedIn(true)
+    }
+  }, []);
+
+  const handleTokenUpdate = (data) => {
+    setIsLoggedIn(data);
+  }
   
   return (
     <div className="App">
       <HashRouter>
-      {!isSmallScreen && <Header />} 
+      {!isSmallScreen && isLoggedIn && <Header />} 
       
       <div className="body">
-        <Routes>
-          <Route path="/">
-            <Route index element={<Home />} />
-            <Route path="technic" element={<Technic />} />
-            <Route path="technic/:id" element={<Level />} />
-            <Route path="technic/:groupElementId/level/:levelId" element={<Element />} />
-            <Route path="technic/:groupElementId/level/:levelId/variation/:elementId" element={<Variation />} />
-            <Route path="technic/:groupElementId/level/:levelId/variation/:elementId/variation_new" element={<NewVariation />} />
-            <Route path="technic/:groupElementId/level/:levelId/element_new" element={<NewElement />} />
-            <Route path="technic/:groupElementId/level_new" element={<NewLevel/>} />
-            <Route path="technic_new" element={<NewTechnic />} />
-            <Route path="athlete_new" element={<NewAthlete />} />
-            <Route path="athlete" element={<Athlete />} />
-            <Route path="music" element={<Music />} />
-            <Route path="music_new" element={<NewMusic />} />
-            <Route path="*" element={<NoPage />} />
-          </Route>
-        </Routes>
-      </div>
         
-        {isSmallScreen && <Footer />} 
+      {isLoggedIn == true ? (
+        <Routes>
+        <Route path="/">
+          <Route index element={<Home />} />
+          <Route path="technic" element={<Technic />} />
+          <Route path="technic/:id" element={<Level />} />
+          <Route path="technic/:groupElementId/level/:levelId" element={<Element />} />
+          <Route path="technic/:groupElementId/level/:levelId/variation/:elementId" element={<Variation />} />
+          <Route path="technic/:groupElementId/level/:levelId/variation/:elementId/variation_new" element={<NewVariation />} />
+          <Route path="technic/:groupElementId/level/:levelId/element_new" element={<NewElement />} />
+          <Route path="technic/:groupElementId/level_new" element={<NewLevel/>} />
+          <Route path="technic_new" element={<NewTechnic />} />
+          <Route path="athlete_new" element={<NewAthlete />} />
+          <Route path="athlete" element={<Athlete />} />
+          <Route path="music" element={<Music />} />
+          <Route path="music_new" element={<NewMusic />} />
+          <Route path="*" element={<NoPage />} />
+        </Route>
+      </Routes>
+      ) : (
+        <Login auth={handleTokenUpdate}/>
+      )} 
+        
+      </div>
+      
+        
+        {isSmallScreen && isLoggedIn && <Footer />} 
       </HashRouter>
     </div>
   );

@@ -514,9 +514,30 @@ nav > .link {
   margin: auto;
 }
 
+.Login {
+  height: 300px;
+  width: 500px;
+  background-color: #d4d4d4;
+  position: relative;
+  margin: auto;
+  margin-top: 150px;
+  border-radius: 25px;
+}
+
+.LoginArea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  justify-content: center;
+}
+
 
 @media screen and (max-width: 600px) {
   /* Ajoutez vos styles CSS pour les téléphones ici */
+  .Login {
+    width: 300px;
+  }
+
   nav > .link {
     margin-left: 20px;
     margin-right: 20px;
