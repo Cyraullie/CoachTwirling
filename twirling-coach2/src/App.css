@@ -319,6 +319,22 @@ nav > .link {
   border: #FFFFFF 0 solid;
 }
 
+.delete {
+  width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  font-size: 18px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  border-radius: 10px;
+  border: #FFFFFF 0 solid;
+}
+
+
 .AthleteContainer {
   width: 90%;
   margin: auto;
@@ -536,6 +552,7 @@ nav > .link {
   justify-content: center;
   flex-wrap: wrap;
   flex-direction: column;
+  margin-top: 20px;
 }
 
 .TopicImages {
@@ -543,8 +560,17 @@ nav > .link {
   margin: auto;
 }
 
+.TopicImagePreview {
+  width: 20%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+.selectable {
+  cursor: pointer;
+}
+
 @media screen and (max-width: 600px) {
-  /* Ajoutez vos styles CSS pour les téléphones ici */
   .Login {
     width: 300px;
   }
@@ -559,6 +585,10 @@ nav > .link {
   }
 
   .submit {
+    width: 90%;
+  }
+  
+  .delete {
     width: 90%;
   }
 
@@ -625,6 +655,9 @@ nav > .link {
 
   .TopicImages {
     width: 80%;
-    margin-top: 20px;
+  }
+
+  .TopicImagePreview {
+    width: 40%;
   }
 }
