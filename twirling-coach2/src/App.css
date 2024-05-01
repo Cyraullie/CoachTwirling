@@ -127,6 +127,7 @@ nav > .link {
 .Title {
   display: flex;
   flex-direction: row;
+  justify-content: center;
   margin-top: 15px;
   font-size: 25px;
   padding: 10px;
