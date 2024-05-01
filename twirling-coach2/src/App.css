@@ -78,11 +78,6 @@ nav > .link {
   overflow-y: scroll;
 }
 
-.bodyContainer{
-  margin: auto;
-  width: 98%;
-}
-
 .TechnicContainer {
   width: 90%;
   margin: auto;
@@ -259,7 +254,7 @@ nav > .link {
 
 .AddButton {
   display: block;
-  position: absolute;
+  position: fixed;
   bottom: 20px;
   right: 20px;
 }
@@ -531,6 +526,22 @@ nav > .link {
   justify-content: center;
 }
 
+.TopicContainer{
+  margin: auto;
+  width: 98%;
+}
+
+.TopicArea {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+}
+
+.TopicImages {
+  width: 50%;
+  margin: auto;
+}
 
 @media screen and (max-width: 600px) {
   /* Ajoutez vos styles CSS pour les téléphones ici */
@@ -610,5 +621,10 @@ nav > .link {
 
   .MusicPlaylist {
     width: 100%;
+  }
+
+  .TopicImages {
+    width: 80%;
+    margin-top: 20px;
   }
 }
