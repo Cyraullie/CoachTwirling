@@ -154,6 +154,15 @@ CREATE TABLE IF NOT EXISTS `accounts` (
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
+-- -----------------------------------------------------
+-- Table `twirling`.`topicalities`
+-- -----------------------------------------------------
+CREATE TABLE IF NOT EXISTS `topicalities` (
+  `id` INT NOT NULL AUTO_INCREMENT,
+  `filepath` VARCHAR(255) NOT NULL,
+  PRIMARY KEY (`id`))
+ENGINE = InnoDB;
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
