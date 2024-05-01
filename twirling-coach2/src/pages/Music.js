@@ -100,7 +100,7 @@ const Music = () => {
 
   function playTrack(trackIndex) {
     const audioElement = document.getElementById('myAudio');
-    audioElement.src = fileUrl + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
+    audioElement.src = fileUrl + "musics/" + tracks[trackIndex] + ".mp3"; // Changement de la source audio vers la piste spécifiée
 
   }
 
@@ -130,12 +130,12 @@ const Music = () => {
 
         <audio id="myAudio" loop >
           {/* Chaque élément <source> doit être fermé correctement */}
-          <source src={fileUrl + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
+          <source src={fileUrl + "musics/" + tracks[currentTrack] + ".mp3"} type="audio/mpeg" />
           <p>Votre navigateur ne prend pas en charge l'élément audio.</p>
         </audio>
 
         <div className="MusicImage">
-            <img className="MusicImage" src={fileUrl + tracksImage[currentTrack]} alt="image de la musique"></img>
+            <img className="MusicImage" src={fileUrl + "musics/" + tracksImage[currentTrack]} alt="image de la musique"></img>
           </div>
         <div className="MusicTitre">
         <a>{tracksName[currentTrack]}</a>
