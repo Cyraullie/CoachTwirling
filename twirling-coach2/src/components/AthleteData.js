@@ -65,6 +65,18 @@ const AthleteData = () => {
     };
     axios.post(apiUrl + "athlete/" + athleteId, payload ).then(onSuccess).catch(onFailure)
   };
+
+  const onPressDelete = (athlete_id) => {
+    const onSuccess = () => {
+      window.location.reload();
+    };
+
+    const onFailure = (error) => {
+      console.log(error && error.response);
+      
+    };
+    axios.delete(apiUrl + "del_athlete/" + athlete_id).then(onSuccess).catch(onFailure)
+  }
   
   return (
     <>
@@ -109,6 +121,16 @@ const AthleteData = () => {
               src="./save.png"
             />
           </a>
+
+          {sessionStorage.getItem("role") == 1 ? (
+            <img
+              className="icon_save selectable"
+              onClick={() => onPressDelete(athlete.id)}
+              src="./trash.png"
+            />
+          ) : (
+            null
+          )}
         </div>
       ))}
     </>

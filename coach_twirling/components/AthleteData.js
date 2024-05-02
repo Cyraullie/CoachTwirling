@@ -24,7 +24,6 @@ export default class DataAthleteView extends Component {
 
       getAthleteData(data){
         const athleteShift = [];
-        //TODO ajout de la suppression et de la modification des athlètes
         for(let i = 0; i < data.length; i++){
             athleteShift.push(
                 

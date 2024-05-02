@@ -21,7 +21,6 @@ const Login = ({auth}) => {
     let payload = {username: username, password: password};
 
     const onSuccess = (result) => {
-      console.log(result.data)
       sessionStorage.setItem("user_id", result.data[0])
       sessionStorage.setItem("role", result.data[1])
       auth(true);

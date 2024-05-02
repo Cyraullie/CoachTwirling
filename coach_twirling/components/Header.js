@@ -2,9 +2,6 @@ import React from 'react';
 import {Text, Image, StyleSheet, View, TouchableOpacity} from "react-native";
 import { useNavigation } from '@react-navigation/native';
 
-//TODO faire un bouton pour retourner en arrière
-
-
 export function Header() {
     const navigation = useNavigation();
 

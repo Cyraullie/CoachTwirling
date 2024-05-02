@@ -32,7 +32,7 @@ const Variation = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-//TODO faire diparaite les boutons + si c'est pas le user_id 1 ou 2
+  //TODO suppression des exo et de tout ce qui est en lien avec les technic 
     return (
       <div className="TechnicContainer">
         <div className="Title">
