@@ -35,7 +35,7 @@ const Variation = () => {
   if (error) {
     return <div>Error: {error.message}</div>;
   }
-  //TODO suppression des exo et de tout ce qui est en lien avec les technic 
+  //TODO mettre la navigation vers le bon moment après l'update ou le delete 
     return (
       <div className="TechnicContainer">
         <div className="Title">
