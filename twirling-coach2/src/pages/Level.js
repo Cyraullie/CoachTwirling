@@ -43,7 +43,7 @@ const Level = () => {
             </Link>
             
           <div className="TitleElement">
-            {technicName}
+            {technicName.toUpperCase()}
           </div>
         </div>
         

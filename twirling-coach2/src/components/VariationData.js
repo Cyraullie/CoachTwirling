@@ -1,8 +1,10 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 const apiUrl = process.env.REACT_APP_API_URL;
 
 const VariationData = ({ groupElementId, levelId, elementId }) => {
+  const navigate = useNavigate();
   const [variationData, setVariationData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -76,6 +78,10 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
     return <div>Error: {error.message}</div>;
   }
 
+  const onPressEdit = (variation_id) => {
+    navigate('/variation_update/' + variation_id)
+  };
+
   return (
     <>
       <a href={variationData[3].link}><img src="/film.png" className="iconFilm" alt="film icon" /></a>
@@ -114,6 +120,15 @@ const VariationData = ({ groupElementId, levelId, elementId }) => {
                 })}
               </div>
             ))}
+            {sessionStorage.getItem("role") == 1 ? (
+            <img
+              className="icon_edit selectable"
+              onClick={() => onPressEdit(variation.id)}
+              src="./edit.png"
+            />
+          ) : (
+            null
+          )}
           </div>
         ))}
       </div>

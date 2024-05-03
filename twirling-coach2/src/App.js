@@ -17,6 +17,11 @@ import NewAthlete from "./pages/NewAthlete.js"
 import NewMusic from "./pages/NewMusic.js";
 import NewTopic from "./pages/NewTopic.js";
 import UpdateTopic from "./pages/UpdateTopic.js";
+import UpdateTechnic from "./pages/UpdateTechnic.js";
+import UpdateLevel from "./pages/UpdateLevel.js";
+import UpdateElement from "./pages/UpdateElement.js";
+import UpdateVariation from "./pages/UpdateVariation.js";
+
 import Level from "./pages/Level.js";
 import NoPage from "./pages/NoPage";
 
@@ -71,6 +76,10 @@ export default function App() {
           <Route path="music_new" element={<NewMusic />} />
           <Route path="topic_new" element={<NewTopic/>} />
           <Route path="topic_update/:topic_id" element={<UpdateTopic/>} />
+          <Route path="technic_update/:technic_id" element={<UpdateTechnic/>} />
+          <Route path="level_update/:level_id" element={<UpdateLevel/>} />
+          <Route path="element_update/:element_id" element={<UpdateElement/>} />
+          <Route path="variation_update/:variation_id" element={<UpdateVariation/>} />
           <Route path="*" element={<NoPage />} />
         </Route>
       </Routes>

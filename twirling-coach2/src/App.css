@@ -92,6 +92,7 @@ nav > .link {
 }
 
 .TechnicButton{
+  display: block;
   text-decoration: none;
   color: #FFFFFF;
   background-color: #6d639f;
@@ -569,6 +570,23 @@ nav > .link {
 
 .selectable {
   cursor: pointer;
+}
+
+.AdminArea {
+  width: auto;
+  display: flex;
+}
+
+.icon_trash {
+  width: 45px;
+  height: 45px;
+  margin: auto;
+}
+
+.icon_edit {
+  width: 45px;
+  height: 45px;
+  margin: auto;
 }
 
 @media screen and (max-width: 600px) {

@@ -7,14 +7,17 @@ const apiUrl = process.env.REACT_APP_API_URL;
 const Element = () => {
   let { groupElementId, levelId } = useParams();
   const [technicName, setTechnicName] = useState("");
+  const [levelName, setLevelName] = useState("");
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(apiUrl + `group_elements/${groupElementId}/levels/${levelId}`);
-        setTechnicName(response.data);
+        const responseLevel = await axios.get(apiUrl + `levels/${levelId}`);
+        const responseTechnic = await axios.get(apiUrl + `group_elements/${groupElementId}`);
+        setLevelName(responseLevel.data);
+        setTechnicName(responseTechnic.data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -43,8 +46,8 @@ const Element = () => {
             </Link>
           <div className="TitleElement">
         
-            <a>{technicName[0]}</a>
-            <a>{technicName[1]}</a>
+            <a>{technicName.toUpperCase()}</a>
+            <a>{levelName.toUpperCase()}</a>
             
           </div>
         </div>

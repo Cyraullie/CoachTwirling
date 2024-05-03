@@ -55,7 +55,6 @@ const AthleteData = () => {
     setIsUpdatedMap(updatedMap);
     let payload = { firstname: firstname, group1: group1, group2: group2 };
 
-    console.log(payload);
     const onSuccess = () => {
       navigate("/athlete");
     };
