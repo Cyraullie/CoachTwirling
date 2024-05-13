@@ -11,9 +11,10 @@ const Music = () => {
   const [currentTime, setCurrentTime] = useState(0);
   const [duration, setDuration] = useState(0);
   const [tracks, setTracks] = useState([])
+  const [musics, setMusics] = useState([])
   const [tracksName, setTracksName] = useState([])
   const [tracksImage, setTracksImage] = useState([])
-  const [showPlaylist, setShowPlaylist] = useState(true);
+  const [showPlaylist, setShowPlaylist] = useState(false);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
 
@@ -25,6 +26,7 @@ const Music = () => {
         setTracks(response.data.map(track => track.filename.substring(0, track.filename.length - 4)));
         setTracksName(response.data.map(track => track.name));
         setTracksImage(response.data.map(track => track.image_filepath));
+        setMusics(response.data);
         setLoading(false);
       } catch (error) {
         setError(error);
@@ -122,6 +124,18 @@ const Music = () => {
     return <div>Error: {error.message}</div>;
   }
 
+  const onPressDelete = (music_id) => {
+    const onSuccess = () => {
+      window.location.reload();
+    };
+
+    const onFailure = (error) => {
+      console.log(error && error.response);
+      
+    };
+    axios.delete(apiUrl + "del_music/" + music_id).then(onSuccess).catch(onFailure)
+  }
+
   return (
     
     <div className="MusicContainer">
@@ -183,9 +197,18 @@ const Music = () => {
 
         <div className="MusicPlaylist">
         <h2 className="PlaylistTitle no-select" onClick={() => toggleOpenState()}>PlayList</h2>
-          {showPlaylist && tracks.map((element, index) => (
+          {showPlaylist && musics.map((element, index) => (
             <div className="PlaylistMusicName" onClick={() => switchTrack(index)}>
-              <a key={index}>{index+1 + "." }{element}</a>
+              <a key={index}>{index+1 + "." }{element.name}</a>
+              {sessionStorage.getItem("role") == 1 ? (
+                <img
+                  className="icon_trashMusic selectable"
+                  onClick={() => onPressDelete(element.id)}
+                  src="./trash.png"
+                />
+              ) : (
+                null
+              )}
             </div>
           ))}
           {sessionStorage.getItem("role") == 1 ? (

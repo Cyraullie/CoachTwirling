@@ -525,6 +525,14 @@ nav > .link {
   text-align: left;
   width: 90%;
   margin: auto;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.PlaylistMusicName > a {
+  margin: auto;
+  margin-left: 0px;
 }
 
 .Login {
@@ -581,6 +589,11 @@ nav > .link {
   width: 45px;
   height: 45px;
   margin: auto;
+}
+
+.icon_trashMusic {
+  width: 45px;
+  height: 45px;
 }
 
 .icon_edit {
