@@ -53,7 +53,7 @@ const Element = () => {
         </div>
         
         
-        <div className="TechnicArea">
+        <div className="ElementArea">
           <ElementData groupElementId={groupElementId} levelId={levelId}/>
         </div>
 
